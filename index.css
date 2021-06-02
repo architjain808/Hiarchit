@@ -24,3 +24,31 @@ body{
 .small-text{
   font-size: 1.4vw;
 }
+.button{
+  width: 15vw;
+  height: 10vh;
+  color: #62FAD7;
+  border: 1px solid #62FAD7;
+  border-radius: 5%;
+  background-color: #061730;
+}
+.button:hover{
+  border: 2px solid #62FAD7;
+}
+.heading{
+  text-align: center;
+}
+.heading span{
+  border: solid 5px #62FAD7;
+  border-radius: 12%;
+  color: #061730;
+}
+.img-text{
+  width: 100%;
+font-size: 5vh;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: #061730;
+  background-color:#62FAD7;
+}
