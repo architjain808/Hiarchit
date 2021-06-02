@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #e3f2fd00;">
+    <nav data-aos="fade-down" class="navbar navbar-expand-lg navbar-dark" style="background-color: #e3f2fd00;">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Archit Jain</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,12 +28,23 @@
       </nav>
       <!-- /navbar -->
       <div class="row m-5 pl-5">
-        <div class="col-12 display-1" style="color: gray;">
-        Hi I am Archit jain
+        <div class="col-12">
+          <div data-aos="fade-up" data-aos-duration="800" class="green hi">
+            Hi, my name is
+          </div>
+          <div data-aos="fade-up" data-aos-duration="1200" class="gray display-1">
+           <b>Archit Jain.</b> 
+          </div>
+          <div data-aos="fade-up" data-aos-duration="2000" class="gray display-1">
+            <b>Studing And Developing</b> 
+           </div>
         </div>
           
       </div>
-        
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

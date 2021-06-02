@@ -1,6 +1,33 @@
 body{
   background-color: #0A192F;
+  margin: 0;
 }
+
 .navbar-nav{
   margin-left: auto !important;
+}
+.hi{
+  margin-left: 2vw;
+}
+.green{
+  color: #62FAD7;
+}
+.gray{
+  color: rgb(130, 156, 173);
+}
+
+@media (max-width: 390px) {  
+  .display-1 {font-size:1.5rem;} /*1rem = 16px*/
+}
+@media (min-width: 390px) {  
+  .display-1 {font-size:2.5rem;} /*1rem = 16px*/
+}
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 820px) {  
+  .display-1 {font-size:4rem;} /*1rem = 16px*/
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1200px) { 
+  .display-1 {font-size:6rem;} /*1rem = 16px*/
 }
