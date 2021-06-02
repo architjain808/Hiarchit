@@ -1,5 +1,5 @@
 body{
-  background-color: #0A192F;
+  background-color: #061730;
   margin: 0;
 }
 
@@ -7,7 +7,7 @@ body{
   margin-left: auto !important;
 }
 .hi{
-  margin-left: 2vw;
+  margin-left: 1vw;
 }
 .green{
   color: #62FAD7;
@@ -16,7 +16,7 @@ body{
   color: rgb(173, 211, 236);
 }
 .gray2{
-  color: rgb(116, 132, 143);
+  color: rgb(140, 148, 153);
 }
 .big-text{
   font-size: 5vw;
