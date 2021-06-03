@@ -4,7 +4,15 @@ body{
 }
 
 .navbar-nav{
-  margin-left: auto !important;
+  margin-left: auto;
+}
+.navbar-nav > a{
+  color: #62FAD7;
+  margin-left: 10px;
+}
+.navbar-nav > a:hover{
+  color: #62FAD7;
+  box-shadow:4px 4px 12px 0px rgba(65, 255, 214, 0.301)inset , -4px -4px 12px 0px rgba(65, 255, 214, 0.301)inset , 0px 0px 22px 0px rgba(65, 255, 214, 0.301);
 }
 .hi{
   margin-left: 1vw;
@@ -27,13 +35,17 @@ body{
 .button{
   width: 15vw;
   height: 10vh;
-  color: #62FAD7;
-  border: 1px solid #62FAD7;
+  color: rgb(173, 211, 236);
+  border: none;
   border-radius: 5%;
   background-color: #061730;
+  box-shadow:4px 4px 12px 0px rgba(0, 0, 0, 0.822) , -4px -4px 12px 0px rgba(65, 255, 214, 0.301);
+  /* box-shadow: -4px -4px 12px 0px #061730; */
 }
 .button:hover{
-  border: 2px solid #62FAD7;
+  box-shadow:4px 4px 12px 0px rgba(65, 255, 214, 0.301)inset , -4px -4px 12px 0px rgba(65, 255, 214, 0.301)inset , 0px 0px 22px 0px rgba(65, 255, 214, 0.301);
+  color: #62FAD7;
+
 }
 .heading{
   text-align: center;
