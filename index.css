@@ -49,10 +49,13 @@ body{
 }
 .heading{
   text-align: center;
+  width: 100%;
+  /* margin: 0; */
+  padding: 0;
 }
 .heading span{
-  border: solid 5px #62FAD7;
-  border-radius: 12%;
+  border: solid 10px #62FAD7;
+  border-radius: 8%;
   color: #061730;
 }
 .img-text{
@@ -64,3 +67,4 @@ font-size: 5vh;
   color: #061730;
   background-color:#62FAD7;
 }
+
