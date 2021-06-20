@@ -12,7 +12,7 @@ body{
 }
 .navbar-nav > a:hover{
   color: #62FAD7;
-  box-shadow:4px 4px 12px 0px rgba(65, 255, 214, 0.301)inset , -4px -4px 12px 0px rgba(65, 255, 214, 0.301)inset , 0px 0px 22px 0px rgba(65, 255, 214, 0.301);
+  /* box-shadow:4px 4px 12px 0px rgba(65, 255, 214, 0.301)inset , -4px -4px 12px 0px rgba(65, 255, 214, 0.301)inset , 0px 0px 22px 0px rgba(65, 255, 214, 0.301); */
 }
 .hi{
   margin-left: 1vw;
@@ -67,4 +67,13 @@ font-size: 5vh;
   color: #061730;
   background-color:#62FAD7;
 }
-
+.greennav{
+  color: #62FAD7;
+}
+.greennav:hover{
+  color: #62FAD7;
+}
+.resume{
+  border:1px solid #62FAD7;
+  border-radius: 10%;
+}
