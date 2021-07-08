@@ -1,6 +1,17 @@
 body{
-  background-color: #061730;
+  background: #061730;
   margin: 0;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .navbar-nav{
@@ -37,7 +48,7 @@ body{
   height: 10vh;
   color: rgb(173, 211, 236);
   border: none;
-  border-radius: 5%;
+  border-radius: 10px;
   background-color: #061730;
   box-shadow:4px 4px 12px 0px rgba(0, 0, 0, 0.822) , -4px -4px 12px 0px rgba(65, 255, 214, 0.301);
   /* box-shadow: -4px -4px 12px 0px #061730; */
@@ -55,7 +66,7 @@ body{
 }
 .heading span{
   border: solid 10px #62FAD7;
-  border-radius: 8%;
+  border-radius: 10px;
   color: #061730;
 }
 .img-text{
@@ -75,5 +86,30 @@ font-size: 5vh;
 }
 .resume{
   border:1px solid #62FAD7;
-  border-radius: 10%;
+  border-radius: 10px;
+}
+section{
+  background: url("Rectangle\ 1.png");
+  background-size: cover;
+  position: relative;
+}
+/* section::after {
+  content: "";
+  background: url("Rectangle\ 1.png");
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+} */
+.glass{
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4.5px );
+  -webkit-backdrop-filter: blur( 4.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  margin:auto;
 }
