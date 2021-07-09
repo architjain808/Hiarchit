@@ -25,6 +25,11 @@ body{
   color: #62FAD7;
   /* box-shadow:4px 4px 12px 0px rgba(65, 255, 214, 0.301)inset , -4px -4px 12px 0px rgba(65, 255, 214, 0.301)inset , 0px 0px 22px 0px rgba(65, 255, 214, 0.301); */
 }
+.top{
+  background: url("banner.png");
+  background-size: cover;
+  position: relative;
+}
 .hi{
   margin-left: 1vw;
 }
