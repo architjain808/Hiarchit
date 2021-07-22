@@ -18,11 +18,11 @@ body{
   margin-left: auto;
 }
 .navbar-nav > a{
-  color: #62FAD7;
+  color: #64ffda;
   margin-left: 10px;
 }
 .navbar-nav > a:hover{
-  color: #62FAD7;
+  color: #64ffda;
   /* box-shadow:4px 4px 12px 0px rgba(65, 255, 214, 0.301)inset , -4px -4px 12px 0px rgba(65, 255, 214, 0.301)inset , 0px 0px 22px 0px rgba(65, 255, 214, 0.301); */
 }
 .top{
@@ -34,13 +34,13 @@ body{
   margin-left: 1vw;
 }
 .green{
-  color: #62FAD7;
+  color: #64ffda;
 }
 .gray{
-  color: rgb(173, 211, 236);
+  color: #e6f1ff;
 }
 .gray2{
-  color: rgb(140, 148, 153);
+  color: #a8b2d1;
 }
 .big-text{
   font-size: 5vw;
@@ -51,7 +51,7 @@ body{
 .button{
   width: 15vw;
   height: 10vh;
-  color: rgb(173, 211, 236);
+  color: #e6f1ff;
   border: none;
   border-radius: 10px;
   background-color: #061730;
@@ -60,7 +60,7 @@ body{
 }
 .button:hover{
   box-shadow:4px 4px 12px 0px rgba(65, 255, 214, 0.301)inset , -4px -4px 12px 0px rgba(65, 255, 214, 0.301)inset , 0px 0px 22px 0px rgba(65, 255, 214, 0.301);
-  color: #62FAD7;
+  color: #64ffda;
 
 }
 .heading{
@@ -70,7 +70,7 @@ body{
   padding: 0;
 }
 .heading span{
-  border: solid 10px #62FAD7;
+  border: solid 10px #64ffda;
   border-radius: 10px;
   color: #061730;
 }
@@ -81,16 +81,16 @@ font-size: 5vh;
   position: absolute;
   bottom: 0;
   color: #061730;
-  background-color:#62FAD7;
+  background-color:#64ffda;
 }
 .greennav{
-  color: #62FAD7;
+  color: #64ffda;
 }
 .greennav:hover{
-  color: #62FAD7;
+  color: #64ffda;
 }
 .resume{
-  border:1px solid #62FAD7;
+  border:1px solid #64ffda;
   border-radius: 10px;
 }
 section{
@@ -151,13 +151,13 @@ section{
   transition: transform 0.45s ease, background 0.45s ease;
 }
 .data-card h3 {
-  color: rgb(173, 211, 236);
+  color: #e6f1ff;
   /* font-size: 3.5em;
   font-weight: 600; */
   line-height: 1;
   padding-bottom: 0.5em;
   margin: 0 0 0.142857143em;
-  border-bottom: 2px solid #62FAD7;
+  border-bottom: 2px solid #64ffda;
   transition: color 0.45s ease, border 0.45s ease;
 }
 .data-card h4 {
@@ -181,7 +181,7 @@ section{
 }
 .data-card .link-text {
   display: block;
-  color: #62FAD7;
+  color: #64ffda;
   font-size: 1.125em;
   font-weight: 600;
   line-height: 1.2;
@@ -232,12 +232,12 @@ section{
 }
 .last:hover
 {
-  color: #62FAD7;
+  color: #64ffda;
 }
 .icon
 {
   text-decoration: none;
-  color: #62FAD7;
+  color: #64ffda;
 }
 .icon:hover
 {
