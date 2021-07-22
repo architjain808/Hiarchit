@@ -234,3 +234,12 @@ section{
 {
   color: #62FAD7;
 }
+.icon
+{
+  text-decoration: none;
+  color: #62FAD7;
+}
+.icon:hover
+{
+  color: #627084;
+}
