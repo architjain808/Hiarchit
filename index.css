@@ -224,3 +224,13 @@ section{
     transform: translateX(0.125em);
   }
 }
+.last
+{
+  text-decoration: none;
+  font-size: large; 
+  color: rgb(128, 128, 128);
+}
+.last:hover
+{
+  color: #62FAD7;
+}
