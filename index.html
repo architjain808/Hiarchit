@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -21,270 +21,312 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="main-container">
-      <section class="section section-1 active">
-        <div class="content text-center">
-          <img class="image-name" src="assets/images/bannerName.svg" alt="" />
+    <div class="floating-btn">
+      <a href="https://www.linkedin.com/in/archit-jain-1b1b3b1b3/">
+        <img
+          class="image-name-web web-view"
+          src="assets/images/floating.svg"
+          alt=""
+        />
+      </a>
+    </div>
+    <div class="swiper">
+      <div class="main-container swiper-wrapper">
+        <section class="section swiper-slide section-1">
+          <div class="content d-flex flex-column justify-content-center">
+            <div class="d-flex justify-content-center">
+              <img
+                class="image-name-web web-view"
+                src="assets/images/banner-web.svg"
+                alt=""
+              />
+              <img
+                class="image-name-mobile mob-view"
+                src="assets/images/banner-phone.svg"
+                alt=""
+              />
+            </div>
 
-          <div class="swipe-up"></div>
-        </div>
-      </section>
-      <section class="section section-2">
-        <div class="content row">
-          <div class="profile-container col-md-3">
-            <img class="image-bg" src="assets/images/profile-bg.svg" alt="" />
-            <img class="profileImg" src="assets/images/profile.svg" alt="" />
-          </div>
+            <div class="swipe-up"></div>
 
-          <div class="content-container d-flex col-md-9">
-            <div class="content-column p-md-3 d-flex flex-column">
-              <div class="heading-text">Hello!</div>
-              <div class="secondary-text">
-                Hi, I’m Archit Jain, a frontend developer specializing in
-                <b>Angular, React, and modern web technologies.</b> I focus on
-                building <b>high-performance, scalable applications</b> and have
-                contributed to state-level e-services, real-time tools, and
-                reusable UI components.
-              </div>
-              <div class="secondary-text mt-1">
-                A <b>quick learner</b>, I’m always exploring new technologies to
-                refine my skills. Passionate about problem-solving and
-                innovation, I strive to create
-                <b>impactful digital experiences</b>.
-              </div>
-
-              <div class="secondary-text mt-1">
-                Let’s connect and build something great!🚀
-              </div>
-              <div class="heading-text mt-1 mt-md-3">Education</div>
-              <div class="secondary-text">
-                <div class="fw-600">
-                  Bachelor of Technology Computer Science
+            <div class="bottom-navigations">
+              <div class="navigation-container">
+                <div class="icons">
+                  <i class="fa-brands fa-github"></i> Github
                 </div>
-                <div>Kurukshetra University</div>
-                <small>May 2018 - May 2022</small>
-                <div class="mt-2 fw-600">Higher Secondary Certificate</div>
-                <div>Modern School Rishikesh (ICSE Board)</div>
-                <small>Mar 2018</small>
-                <div class="mt-2 fw-600">Secondary School Certificate</div>
-                <div>Modern School Rishikesh (ICSE Board)</div>
-                <small>Mar 2016</small>
+                <div class="icons">
+                  <i class="fa-brands fa-linkedin"></i> Linkedin
+                </div>
+                <div class="icons">
+                  <i class="fa-solid fa-envelope"></i> architjain808@gmail.com
+                </div>
               </div>
             </div>
-            <div class="content-column p-md-3 d-flex flex-column">
-              <div class="heading-text">Skills</div>
-              <div class="secondary-text d-flex flex-row flex-md-column row">
-                <div class="fw-600">Frontend Development</div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-angular mx-1"></i>Angular
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
+          </div>
+        </section>
+        <section class="section swiper-slide section-2">
+          <div class="content row">
+            <div class="web-view d-flex col-md-3">
+              <img class="image-bg" src="assets/images/profile-bg.svg" alt="" />
+              <img
+                class="profileImg"
+                src="assets/images/profile_1.svg"
+                alt=""
+              />
+              <img class="sign" src="assets/images/sign.svg" alt="" />
+            </div>
+            <div class="mob-view mobile-iamge">
+              <img src="assets/images/profile-mob.svg" alt="" />
+            </div>
+            <div class="content-container d-flex col-md-9">
+              <div class="content-column big-col p-md-3 d-flex flex-column">
+                <div class="heading-text">Hello!</div>
+                <div class="secondary-text">
+                  Hi, I’m Archit Jain, a frontend developer specializing in
+                  <b>Angular, React, and modern web technologies.</b> I focus on
+                  building <b>high-performance, scalable applications</b> and
+                  have contributed to state-level e-services, real-time tools,
+                  and reusable UI components.
+                </div>
+                <div class="secondary-text mt-1">
+                  A <b>quick learner</b>, I’m always exploring new technologies
+                  to refine my skills. Passionate about problem-solving and
+                  innovation, I strive to create
+                  <b>impactful digital experiences</b>.
                 </div>
 
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-js mx-1"></i>JavaScript
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
+                <div class="secondary-text mt-1">
+                  Let’s connect and build something great!🚀
                 </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-js mx-1"></i>TypeScript
+                <div class="heading-text mt-1 mt-md-3">Education</div>
+                <div class="secondary-text">
+                  <div class="fw-600">
+                    Bachelor of Technology Computer Science
                   </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-react mx-1"></i>React
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                  ></small>
-                </div>
-                <div class="fw-600 mt-2">UI/UX Design</div>
-
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-solid fa-m mx-1"></i>Material UI
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                  ></small>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-bootstrap mx-1"></i>Bootstrap
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                  ></small>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-figma mx-1"></i>Figma
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                  ></small>
-                </div>
-                <div class="fw-600 mt-2">Programming Languages</div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-js mx-1"></i>JavaScript
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-html5 mx-1"></i>HTML
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
-                </div>
-
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-css3-alt mx-1"></i>CSS3/SCSS
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-solid fa-c mx-1"></i>C++
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                  ></small>
-                </div>
-
-                <div class="fw-600 mt-2">Version Control</div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-git mx-1"></i>Git
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-github mx-1"></i>Github
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star-half"></i
-                  ></small>
-                </div>
-                <div
-                  class="d-flex col-6 justify-content-between align-items-center"
-                >
-                  <div class="fw-500">
-                    <i class="fa-brands fa-bitbucket mx-1"></i>Bitbucket
-                  </div>
-
-                  <small class="mx-1" style="font-size: 10px"
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                    ><i class="fa-solid fa-star"></i
-                  ></small>
+                  <div>Kurukshetra University</div>
+                  <small>May 2018 - May 2022</small>
+                  <div class="mt-2 fw-600">Higher Secondary Certificate</div>
+                  <div>Modern School Rishikesh (ICSE Board)</div>
+                  <small>Mar 2018</small>
+                  <div class="mt-2 fw-600">Secondary School Certificate</div>
+                  <div>Modern School Rishikesh (ICSE Board)</div>
+                  <small>Mar 2016</small>
                 </div>
               </div>
+              <div class="content-column small-col p-md-3 d-flex flex-column">
+                <div class="heading-text">Skills</div>
+                <div class="secondary-text d-flex flex-row flex-md-column row">
+                  <div class="fw-600">Frontend Development</div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-angular mx-1"></i>Angular
+                    </div>
 
-              <!-- <div class="heading-text">Experience</div>
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-js mx-1"></i>JavaScript
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-js mx-1"></i>TypeScript
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-react mx-1"></i>React
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                    ></small>
+                  </div>
+                  <div class="fw-600 mt-2">UI/UX Design</div>
+
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-solid fa-m mx-1"></i>Material UI
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-bootstrap mx-1"></i>Bootstrap
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-figma mx-1"></i>Figma
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                    ></small>
+                  </div>
+                  <div class="fw-600 mt-2">Programming Languages</div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-js mx-1"></i>JavaScript
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-html5 mx-1"></i>HTML
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-css3-alt mx-1"></i>CSS3/SCSS
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-solid fa-c mx-1"></i>C++
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                    ></small>
+                  </div>
+
+                  <div class="fw-600 mt-2">Version Control</div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-git mx-1"></i>Git
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-github mx-1"></i>Github
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star-half"></i
+                    ></small>
+                  </div>
+                  <div
+                    class="d-flex col-6 col-md-12 justify-content-between align-items-center"
+                  >
+                    <div class="fw-500">
+                      <i class="fa-brands fa-bitbucket mx-1"></i>Bitbucket
+                    </div>
+
+                    <small class="mx-1 starts" style="font-size: 10px"
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                    ></small>
+                  </div>
+                </div>
+
+                <!-- <div class="heading-text">Experience</div>
               <div class="secondary-text">
                 <div class="fw-600">Daffodils Software</div>
                 <div>Associate IT (SDE 2)</div>
@@ -293,39 +335,28 @@
                 <div>Jr. Associate IT (SDE 1)</div>
                 <small>Jan 2022 - Jan 2023</small>
               </div> -->
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="section section-3">
-        <div class="content">
-          <h1>Section 3</h1>
-          <p>Discover the third section of our sliding interface.</p>
-        </div>
-      </section>
-      <section class="section section-4">
-        <div class="content">
-          <h1>Section 4</h1>
-          <p>Experience the fourth section of our dynamic wireframe.</p>
-        </div>
-      </section>
-      <section class="section section-5">
-        <div class="content">
-          <h1>Section 5</h1>
-          <p>Navigate to the fifth section with smooth transitions.</p>
-        </div>
-      </section>
-      <section class="section section-6">
-        <div class="content">
-          <h1>Section 6</h1>
-          <p>Reach the final section of our sliding navigation.</p>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
+
     <script
       src="https://kit.fontawesome.com/16444fe168.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper", {
+        direction: "vertical", // Vertical scroll
+        mousewheel: true, // Enable mousewheel control
+        speed: 600, // Smooth scrolling effect
+        loop: true, // Infinite loop
+      });
+    </script>
+    III
     <script src="script.js"></script>
   </body>
 </html>
