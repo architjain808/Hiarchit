@@ -22,7 +22,10 @@
   </head>
   <body>
     <div class="floating-btn">
-      <a href="https://www.linkedin.com/in/archit-jain-1b1b3b1b3/">
+      <a
+        target="_blank"
+        href="https://drive.google.com/file/d/1PwjYzzafBfmIHhCowk37-KeshoCJ_2gA/view?usp=sharing"
+      >
         <img
           class="image-name-web web-view"
           src="assets/images/floating.svg"
@@ -51,15 +54,26 @@
 
             <div class="bottom-navigations">
               <div class="navigation-container">
-                <div class="icons">
+                <a
+                  href="https://github.com/architjain808"
+                  target="_blank"
+                  class="icons"
+                >
                   <i class="fa-brands fa-github"></i> Github
-                </div>
-                <div class="icons">
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/archit-jain-337a66195/"
+                  target="_blank"
+                  class="icons"
+                >
                   <i class="fa-brands fa-linkedin"></i> Linkedin
-                </div>
-                <div class="icons">
+                </a>
+                <a
+                  href="mailto:architjain808@gamil.com?subject=Hi%20Archit"
+                  class="icons"
+                >
                   <i class="fa-solid fa-envelope"></i> architjain808@gmail.com
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -349,14 +363,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
+      var isMobile = window.innerWidth <= 768;
       var swiper = new Swiper(".swiper", {
         direction: "vertical", // Vertical scroll
-        mousewheel: true, // Enable mousewheel control
+        mousewheel: {
+          releaseOnEdges: true, // Allows normal scrolling inside slides
+        },
         speed: 600, // Smooth scrolling effect
-        loop: true, // Infinite loop
+        loop: false, // Infinite loop
+        freeMode: isMobile, // Free mode
+        autoHeight: true, // Auto height
       });
     </script>
-    III
     <script src="script.js"></script>
   </body>
 </html>

@@ -10,6 +10,7 @@ body {
   overflow-x: hidden;
   background-color: #ececec;
   font-family: "Lato", sans-serif;
+  color: #231f20;
 }
 
 .main-container {
@@ -19,7 +20,7 @@ body {
 }
 .swiper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .swiper-slide {
   /* display: flex; */
@@ -30,15 +31,9 @@ body {
   /* color: white; */
 }
 .section {
-  /* position: absolute; */
   width: 100%;
   height: 100%;
-  /* top: 0; */
-  /* left: 0; */
-  /* opacity: 0; */
-  /* visibility: hidden; */
-  /* transition: all 0.8s ease-in-out; */
-  /* transform: translateY(100%); */
+  /* overflow: hidden; */
   background-color: #ececec;
 }
 
@@ -182,7 +177,7 @@ b {
 .bottom-navigations {
   position: absolute;
   bottom: 5%;
-  color: #2c3e50;
+  color: #231f20;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -192,6 +187,8 @@ b {
     align-items: center;
     width: 80%;
     .icons {
+      color: #231f20;
+      text-decoration: none;
       cursor: pointer;
       &:hover {
         color: #98d73c;
@@ -244,4 +241,13 @@ b {
     line-height: 3;
     flex-direction: column;
   }
+  /* .heading-text {
+    font-size: 18px;
+  }
+  .secondary-text {
+    font-size: 14px;
+  }
+  small {
+    font-size: 10px;
+  } */
 }
