@@ -241,13 +241,13 @@ b {
     line-height: 3;
     flex-direction: column;
   }
-  /* .heading-text {
+  .heading-text {
     font-size: 18px;
   }
   .secondary-text {
-    font-size: 14px;
+    font-size: 12px;
   }
   small {
-    font-size: 10px;
-  } */
+    font-size: 8px;
+  }
 }
