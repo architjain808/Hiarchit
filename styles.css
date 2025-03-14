@@ -6,11 +6,11 @@
 
 html,
 body {
-  height: 100%;
-  overflow-x: hidden;
-  background-color: #ececec;
-  font-family: "Lato", sans-serif;
-  color: #231f20;
+  /* height: 100%; */
+  overflow: hidden;
+  /* background-color: #ececec; */
+  /* font-family: "Lato", sans-serif; */
+  /* color: #231f20; */
 }
 
 .main-container {
@@ -22,19 +22,12 @@ body {
   width: 100%;
   height: 100%;
 }
-.swiper-slide {
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* font-size: 2rem; */
-  /* font-weight: bold; */
-  /* color: white; */
-}
+
 .section {
   width: 100%;
   height: 100%;
   /* overflow: hidden; */
-  background-color: #ececec;
+  /* background-color: #ececec; */
 }
 
 .section .content {
@@ -47,7 +40,7 @@ body {
   width: 75vw;
 }
 .section .content .image-name-mobile {
-  width: 90vw;
+  width: 80vw;
 }
 
 .web-view {
@@ -213,7 +206,7 @@ b {
     font-size: 10px;
   } */
   .section .content {
-    padding: 1rem;
+    padding: 4rem 1rem;
   }
   .web-view {
     display: none !important;
@@ -236,7 +229,7 @@ b {
     flex-wrap: wrap;
     align-content: start;
     align-items: start !important;
-    top: -60vh;
+    top: -110vh;
     left: 8px;
     line-height: 3;
     flex-direction: column;
@@ -249,5 +242,51 @@ b {
   }
   small {
     font-size: 8px;
+  }
+}
+
+.background-text {
+  position: fixed; /* Fixed instead of absolute */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow: hidden;
+  color: rgba(153, 215, 60, 0.199);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre;
+  user-select: none;
+  z-index: -11; /* Ensure it stays behind everything */
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: none; /* Makes the background non-interactive */
+}
+
+.code-line {
+  width: 100%;
+  height: 21px; /* Line height */
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: rgba(152, 215, 60, 0.5);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
