@@ -170,9 +170,9 @@ b {
 
 .bottom-navigations {
   position: absolute;
-  bottom: 5%;
   color: #231f20;
   width: 100%;
+  bottom: 45vh;
   display: flex;
   justify-content: center;
   .navigation-container {
@@ -223,6 +223,10 @@ b {
   .mob-view {
     display: block;
   }
+  /* .bottom-navigations {
+    bottom: 95vh;
+    left: -20px;
+  } */
   .navigation-container {
     width: 100%;
     display: flex;
@@ -230,7 +234,7 @@ b {
     flex-wrap: wrap;
     align-content: start;
     align-items: start !important;
-    top: -95vh;
+    bottom: 45vh;
     left: 8px;
     line-height: 3;
     flex-direction: column;
