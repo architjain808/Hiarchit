@@ -8,7 +8,7 @@ html,
 body {
   /* height: 100%; */
   overflow: hidden;
-  /* background-color: #ececec; */
+  background-color: #ececec;
   /* font-family: "Lato", sans-serif; */
   /* color: #231f20; */
 }
@@ -21,6 +21,7 @@ body {
 .swiper {
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 .section {
@@ -258,7 +259,7 @@ b {
   line-height: 1.5;
   white-space: pre;
   user-select: none;
-  z-index: -11; /* Ensure it stays behind everything */
+  z-index: 0; /* Ensure it stays behind everything */
   display: flex;
   flex-wrap: wrap;
   pointer-events: none; /* Makes the background non-interactive */
