@@ -172,7 +172,7 @@ b {
   position: absolute;
   color: #231f20;
   width: 100%;
-  bottom: 45vh;
+  bottom: 125vh;
   display: flex;
   justify-content: center;
   .navigation-container {
@@ -207,7 +207,7 @@ b {
     font-size: 10px;
   } */
   .section .content {
-    padding: 4rem 1rem;
+    padding: 1rem;
   }
   .web-view {
     display: none !important;
@@ -234,7 +234,7 @@ b {
     flex-wrap: wrap;
     align-content: start;
     align-items: start !important;
-    bottom: 45vh;
+    bottom: 100vh;
     left: 8px;
     line-height: 3;
     flex-direction: column;
@@ -293,5 +293,13 @@ b {
   }
   50% {
     opacity: 0;
+  }
+}
+.linkIcon {
+  color: #231f20;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: #98d73c;
   }
 }
