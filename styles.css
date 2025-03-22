@@ -88,9 +88,9 @@ body {
 .swipe-up {
   width: 20px;
   height: 20px;
-  border: 1px solid #98d73c;
+  border: 1px solid #9ad741;
   border-radius: 50%;
-  background: #98d73c;
+  background: #9ad741;
   left: 50%;
   bottom: 0;
   position: relative;
@@ -132,10 +132,10 @@ small {
   font-size: 12px;
 }
 b {
-  color: #98d73c;
+  color: #9ad741;
 }
 .starts {
-  color: #98d73c;
+  color: #9ad741;
 }
 .image-bg {
   position: absolute;
@@ -185,7 +185,7 @@ b {
       text-decoration: none;
       cursor: pointer;
       &:hover {
-        color: #98d73c;
+        color: #9ad741;
       }
     }
   }
@@ -234,7 +234,7 @@ b {
     flex-wrap: wrap;
     align-content: start;
     align-items: start !important;
-    bottom: 100vh;
+    bottom: 40vh;
     left: 8px;
     line-height: 3;
     flex-direction: column;
@@ -258,7 +258,7 @@ b {
   bottom: 0;
   padding: 20px;
   overflow: hidden;
-  color: rgba(153, 215, 60, 0.199);
+  color: #231f2010;
   font-size: 14px;
   line-height: 1.5;
   white-space: pre;
@@ -300,6 +300,6 @@ b {
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    color: #98d73c;
+    color: #9ad741;
   }
 }
