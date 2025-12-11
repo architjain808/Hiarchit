@@ -90,6 +90,14 @@ const angularCodeLines = [
 // Create background with typing effect
 const codeBackground = document.getElementById("codeBackground");
 
+let activeTimeouts = []; // Track active timeouts to clear them
+
+// Helper to clear all timeouts
+function clearTimings() {
+  activeTimeouts.forEach((id) => clearTimeout(id));
+  activeTimeouts = [];
+}
+
 // Create a grid of typing code elements
 function createCodeGrid() {
   const windowHeight = window.innerHeight;
@@ -123,18 +131,17 @@ function createCodeGrid() {
 // Initialize the code grid
 createCodeGrid();
 
-// Handle typing effect
-const codeLines = document.querySelectorAll(".code-line");
-
 function startTyping() {
+  const codeLines = document.querySelectorAll(".code-line");
   codeLines.forEach((line) => {
     const lineIndex = parseInt(line.getAttribute("data-line"));
     const delay = parseInt(line.getAttribute("data-delay"));
     const text = angularCodeLines[lineIndex];
 
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       typeText(line, text);
     }, delay);
+    activeTimeouts.push(timeoutId);
   });
 }
 
@@ -147,16 +154,19 @@ function typeText(element, text) {
       currentText += text.charAt(index);
       element.textContent = currentText;
       index++;
-      setTimeout(type, Math.random() * 50 + 20); // Random typing speed
+      // Random typing speed
+      const timeoutId = setTimeout(type, Math.random() * 50 + 20); 
+      activeTimeouts.push(timeoutId);
     } else {
       // Add slight pause before typing next line
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         // Reset and start again (infinite loop)
         element.textContent = "";
         index = 0;
         currentText = "";
         type();
       }, 3000);
+      activeTimeouts.push(timeoutId);
     }
   }
 
@@ -166,8 +176,13 @@ function typeText(element, text) {
 // Start typing effect
 startTyping();
 
-// Handle window resize
+// Handle window resize with debounce
+let resizeTimer;
 window.addEventListener("resize", () => {
-  createCodeGrid();
-  startTyping();
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+      clearTimings(); // Stop all previous animations
+      createCodeGrid(); // Recreate grid for new size
+      startTyping(); // Restart animation
+  }, 250); // 250ms debounce
 });

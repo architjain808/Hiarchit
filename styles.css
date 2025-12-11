@@ -6,7 +6,7 @@
 
 html,
 body {
-  /* height: 100%; */
+  height: 100%;
   overflow: hidden;
   background-color: #ececec;
   /* font-family: "Lato", sans-serif; */
@@ -18,6 +18,7 @@ body {
   height: 100%;
   position: relative;
 }
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -27,19 +28,27 @@ body {
 .section {
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
-  /* background-color: #ececec; */
+  display: flex;
+  /* Ensure content can use flexbox centering */
+  flex-direction: column;
+  position: relative;
+  /* Context for absolute positioning children */
 }
 
 .section .content {
   /* text-align: center; */
   padding: 2rem;
   width: 100%;
+  height: 100%;
+  /* Take full height to allow vertical centering */
 }
 
 .section .content .image-name-web {
   width: 75vw;
+  max-width: 900px;
+  /* Prevent it from getting too huge on 4k */
 }
+
 .section .content .image-name-mobile {
   width: 80vw;
 }
@@ -47,28 +56,55 @@ body {
 .web-view {
   display: block;
 }
+
 .mob-view {
   display: none;
 }
 
 .section .content .profileImg {
-  width: 260px;
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(0, 0, 0, 0) 85%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(0, 0, 0, 0) 85%
-  );
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(0, 0, 0, 0) 85%);
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(0, 0, 0, 0) 85%);
 }
 
-.sign {
-  width: 220px;
-  position: absolute;
-  bottom: -470px;
+/* Wrapper for the profile stack - DESKTOP ONLY */
+@media screen and (min-width: 993px) {
+  .section-2 .web-view {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    padding-top: 10vh;
+  }
+
+  .sign {
+    width: 80%;
+    max-width: 220px;
+    position: relative;
+    z-index: 3;
+    margin-top: -60px;
+    transform: rotate(-10deg);
+  }
+
+  .image-bg {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    max-width: 300px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .content-column {
@@ -79,6 +115,7 @@ body {
   font-family: "Kalnia", serif;
   font-size: 24px;
 }
+
 .secondary-text {
   font-family: "Lato", sans-serif;
   font-size: 14px;
@@ -92,10 +129,14 @@ body {
   border-radius: 50%;
   background: #9ad741;
   left: 50%;
-  bottom: 0;
-  position: relative;
+  /* bottom: 0; Removed to allow flex placement or proper positioning */
+  position: absolute;
+  bottom: 120px;
+  /* Position above nav */
+  transform: translateX(-50%);
   animation: mymove 2s ease-out forwards;
-  animation-iteration-count: 1.5;
+  animation-iteration-count: infinite;
+  /* Fix: was 1.5, usually want infinite for UI hints */
 
   /* Safari and Chrome */
   -webkit-animation: mymove 2s;
@@ -104,11 +145,12 @@ body {
 
 @keyframes mymove {
   from {
-    top: 200px;
+    transform: translate(-50%, 0);
     opacity: 1;
   }
+
   to {
-    top: 0px;
+    transform: translate(-50%, -50px);
     opacity: 0;
   }
 }
@@ -117,8 +159,10 @@ body {
 @-webkit-keyframes mymove {
   from {
     top: 200px;
+    /* Legacy support */
     opacity: 1;
   }
+
   to {
     top: 0px;
     opacity: 0;
@@ -128,20 +172,29 @@ body {
 .fw-600 {
   font-weight: 600;
 }
+
 small {
   font-size: 12px;
 }
+
 b {
   color: #9ad741;
 }
+
 .starts {
   color: #9ad741;
 }
+
 .image-bg {
   position: absolute;
-  z-index: 0;
-  width: 250px;
+  z-index: 1;
+  width: 100%;
+  max-width: 300px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 .floating-btn {
   position: fixed;
   bottom: 20px;
@@ -151,6 +204,7 @@ b {
   z-index: 9999;
   transition: all 0.8s ease-in-out;
   animation: floatingAnimation 2s infinite;
+
   img {
     width: 140px;
   }
@@ -160,9 +214,11 @@ b {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -172,34 +228,89 @@ b {
   position: absolute;
   color: #231f20;
   width: 100%;
-  bottom: 125vh;
+  bottom: 5vh;
+  /* Fix: Relative to the slide bottom, not viewport madness */
   display: flex;
   justify-content: center;
+  z-index: 10;
+
   .navigation-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 80%;
+    max-width: 600px;
+
+    /* constrain on large screens */
     .icons {
       color: #231f20;
       text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
       cursor: pointer;
+
       &:hover {
         color: #9ad741;
+        transform: translateY(-2px);
       }
     }
   }
 }
+
 .big-col {
   flex-basis: 70%;
 }
+
 .small-col {
   flex-basis: 30%;
 }
-@media screen and (max-width: 760px) {
+
+@media screen and (max-width: 992px) {
+
+  /* Tablet / Small Laptop Fixes */
+  .section .content {
+    padding: 1rem;
+  }
+
+  .heading-text {
+    font-size: 20px;
+  }
+
+  .secondary-text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  html,
+  body {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  .swiper,
+  .swiper-wrapper {
+    height: auto !important;
+    position: static !important;
+    display: block !important;
+    transform: none !important;
+    z-index: 10;
+  }
+
+  .section {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+    margin-bottom: 2rem;
+    /* Spacing between sections */
+  }
+
   .content-container {
     flex-direction: column;
+    padding-bottom: 80px;
   }
+
   /* .heading-text {
     font-size: 16px;
   }
@@ -209,6 +320,7 @@ b {
   .section .content {
     padding: 1rem;
   }
+
   .web-view {
     display: none !important;
   }
@@ -216,13 +328,16 @@ b {
   .mobile-iamge {
     display: flex !important;
     justify-content: center !important;
+
     img {
       width: 150px;
     }
   }
+
   .mob-view {
     display: block;
   }
+
   /* .bottom-navigations {
     bottom: 95vh;
     left: -20px;
@@ -230,28 +345,70 @@ b {
   .navigation-container {
     width: 100%;
     display: flex;
-    position: absolute;
     flex-wrap: wrap;
-    align-content: start;
-    align-items: start !important;
-    bottom: 40vh;
-    left: 8px;
-    line-height: 3;
-    flex-direction: column;
+    justify-content: flex-start;
+    /* Left aligned */
+    align-items: center !important;
+    gap: 20px;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin-top: 10px;
+    /* Little up */
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
+
+  .navigation-container .icons {
+    background-color: transparent;
+    color: #231f20;
+    padding: 5px 0;
+    border-radius: 0;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+    box-shadow: none;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+  }
+
+  .navigation-container .icons:active {
+    transform: none;
+    box-shadow: none;
+    color: #9ad741;
+  }
+
+  .navigation-container .icons:nth-child(3) {
+    width: auto;
+    max-width: 100%;
+    justify-content: flex-start;
+  }
+
   .heading-text {
     font-size: 18px;
   }
+
   .secondary-text {
     font-size: 12px;
   }
+
   small {
-    font-size: 8px;
+    font-size: 10px;
+    /* legible */
+  }
+
+  .swipe-up {
+    bottom: 60px;
+    /* Adjust for mobile */
   }
 }
 
 .background-text {
-  position: fixed; /* Fixed instead of absolute */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -263,15 +420,16 @@ b {
   line-height: 1.5;
   white-space: pre;
   user-select: none;
-  z-index: 0; /* Ensure it stays behind everything */
+  z-index: 0;
   display: flex;
   flex-wrap: wrap;
-  pointer-events: none; /* Makes the background non-interactive */
+  pointer-events: none;
 }
 
 .code-line {
   width: 100%;
-  height: 21px; /* Line height */
+  height: 21px;
+  /* Line height */
   overflow: hidden;
   white-space: nowrap;
   margin-bottom: 0;
@@ -287,18 +445,22 @@ b {
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
 }
+
 .linkIcon {
   color: #231f20;
   text-decoration: none;
   cursor: pointer;
+
   &:hover {
     color: #9ad741;
   }
