@@ -228,7 +228,7 @@ b {
   position: absolute;
   color: #231f20;
   width: 100%;
-  bottom: 5vh;
+  bottom: 8vh;
   /* Fix: Relative to the slide bottom, not viewport madness */
   display: flex;
   justify-content: center;
