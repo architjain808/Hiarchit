@@ -1,0 +1,131 @@
+@use 'bootstrap/scss/bootstrap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: #ececec;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.heading-text {
+  font-family: 'Kalnia', serif;
+  font-size: 24px;
+}
+
+.secondary-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.web-view {
+  display: block;
+}
+
+.mob-view {
+  display: none;
+}
+
+b {
+  color: #9ad741;
+}
+
+.starts {
+  color: #9ad741;
+}
+
+small {
+  font-size: 12px;
+}
+
+.linkIcon {
+  color: #231f20;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #9ad741;
+  }
+}
+
+/* Background animation */
+.background-text {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow: hidden;
+  color: #231f2010;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre;
+  user-select: none;
+  z-index: 0;
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+
+.code-line {
+  width: 100%;
+  height: 21px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 992px) {
+  .heading-text {
+    font-size: 20px;
+  }
+
+  .secondary-text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  html,
+  body {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  .web-view {
+    display: none !important;
+  }
+
+  .mob-view {
+    display: block;
+  }
+
+  .heading-text {
+    font-size: 18px;
+  }
+
+  .secondary-text {
+    font-size: 12px;
+  }
+
+  small {
+    font-size: 10px;
+  }
+}

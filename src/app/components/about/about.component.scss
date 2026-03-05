@@ -1,0 +1,79 @@
+.content-column {
+  flex-basis: 50%;
+}
+
+.big-col {
+  flex-basis: 70%;
+}
+
+.small-col {
+  flex-basis: 30%;
+}
+
+.profileImg {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 85%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 85%);
+}
+
+.image-bg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  max-width: 300px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Desktop profile stack */
+@media screen and (min-width: 993px) {
+  .section-2 .web-view {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    padding-top: 10vh;
+  }
+
+  .sign {
+    width: 80%;
+    max-width: 220px;
+    position: relative;
+    z-index: 3;
+    margin-top: -60px;
+    transform: rotate(-10deg);
+  }
+
+  .image-bg {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    max-width: 300px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-image {
+    display: flex !important;
+    justify-content: center !important;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  .content-container {
+    flex-direction: column;
+    padding-bottom: 80px;
+  }
+}
