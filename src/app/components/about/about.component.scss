@@ -1,79 +1,450 @@
-.content-column {
-  flex-basis: 50%;
-}
-
-.big-col {
-  flex-basis: 70%;
-}
-
-.small-col {
-  flex-basis: 30%;
-}
-
-.profileImg {
-  width: 100%;
-  max-width: 260px;
-  height: auto;
+.about-section {
+  padding: 15vh 5vw 0;
+  background-color: var(--bg-secondary);
   position: relative;
-  z-index: 2;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 85%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 85%);
+  overflow: hidden;
 }
 
-.image-bg {
+
+// -------------------------------------------------------
+// Main Grid
+// -------------------------------------------------------
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6vw;
+  align-items: start;
+}
+
+
+// -------------------------------------------------------
+// Left — Text Column
+// -------------------------------------------------------
+
+.about-text {
+  padding-top: 4vh;
+}
+
+.about-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 1.2rem;
+}
+
+.about-heading-wrap {
+  margin-bottom: 3.5rem;
+}
+
+.about-heading {
+  font-size: clamp(4rem, 9vw, 11rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+
+  &.line-solid {
+    color: var(--text-primary);
+  }
+
+  &.line-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--text-primary);
+  }
+}
+
+// "AM I." indented right — editorial rhythm
+.heading-line-2 {
+  padding-left: 6vw;
+}
+
+.about-dot {
+  color: var(--accent-primary);
+  -webkit-text-stroke: 0px;
+}
+
+.bio-lead {
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.4rem;
+
+  strong { font-weight: 800; }
+  em { font-style: italic; color: var(--accent-primary); font-style: normal; font-weight: 700; }
+}
+
+.bio-sub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+// Education block
+.edu-block {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.edu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.edu-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.edu-year {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.edu-degree {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.edu-meta {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+
+// -------------------------------------------------------
+// Right — Visual Column
+// -------------------------------------------------------
+
+.about-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem; // space for signature overflow
+}
+
+// Ghost "AJ" initials — decorative, behind everything
+.bg-initials {
   position: absolute;
-  z-index: 1;
-  width: 100%;
-  max-width: 300px;
+  font-family: var(--font-heading);
+  font-size: clamp(12rem, 22vw, 22rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.04);
+  letter-spacing: -0.06em;
+  line-height: 1;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  right: -3vw;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Desktop profile stack */
-@media screen and (min-width: 993px) {
-  .section-2 .web-view {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    height: 100%;
-    padding-top: 10vh;
+// Floating identity chip — top left of visual
+.identity-chip {
+  position: absolute;
+  top: -1rem;
+  left: -1.5rem;
+  z-index: 10;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border-radius: 40px;
+  padding: 8px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  .chip-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-primary);
+    flex-shrink: 0;
+    animation: pulseRing 2.5s ease-out infinite;
+  }
+}
+
+
+// -------------------------------------------------------
+// Photo + Signature Wrapper (flex column)
+// -------------------------------------------------------
+
+.photo-sig-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+
+// -------------------------------------------------------
+// Photo Frame
+// -------------------------------------------------------
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  transform: rotate(-2deg);
+  transition: transform var(--dur-slow) var(--ease-spring);
+  will-change: transform;
+
+  &:hover {
+    transform: rotate(0deg);
+  }
+}
+
+// Green bookmark stripes peeking from frame edges
+.frame-stripe {
+  position: absolute;
+  background-color: var(--accent-primary);
+  border-radius: 8px;
+  z-index: 0;
+
+  &.frame-stripe--right {
+    right: -14px;
+    top: 8%;
+    width: 14px;
+    height: 78%;
+    opacity: 0.65;
+    border-radius: 0 8px 8px 0;
   }
 
-  .sign {
-    width: 80%;
-    max-width: 220px;
-    position: relative;
-    z-index: 3;
-    margin-top: -60px;
-    transform: rotate(-10deg);
+  &.frame-stripe--top {
+    top: -12px;
+    right: 12%;
+    height: 12px;
+    width: 55%;
+    opacity: 0.3;
+    border-radius: 8px 8px 0 0;
   }
+}
 
-  .image-bg {
-    position: absolute;
-    z-index: 1;
+// Image container
+.image-mask {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-surface);
+  // Soft fade at the bottom so the name overlay blends in
+  mask-image: linear-gradient(to bottom, black 68%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 68%, transparent 100%);
+
+  .profile-img {
     width: 100%;
-    max-width: 300px;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    mix-blend-mode: multiply;
+    filter: contrast(1.1) grayscale(18%);
+    transition: filter var(--dur-slow) var(--ease-out);
   }
 }
 
-@media screen and (max-width: 768px) {
-  .mobile-image {
-    display: flex !important;
-    justify-content: center !important;
+// Hover: reveal full color on the image
+.photo-frame:hover .image-mask .profile-img {
+  filter: contrast(1.05) grayscale(0%);
+}
 
-    img {
-      width: 150px;
+// Name overlay at the bottom of the image
+.image-name-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3.5rem 1.5rem 1.4rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, transparent 100%);
+  z-index: 3;
+  border-radius: 0 0 24px 24px;
+}
+
+.overlay-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+
+// -------------------------------------------------------
+// Signature
+// -------------------------------------------------------
+
+.signature-img {
+  align-self: flex-end;
+  width: 72%;
+  max-width: 300px;
+  margin-top: -2.5rem; // overlaps photo bottom slightly
+  margin-right: 0.5rem;
+  transform: rotate(-6deg);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.14));
+  will-change: clip-path;
+  z-index: 5;
+  position: relative;
+}
+
+
+// -------------------------------------------------------
+// Skills Marquee
+// -------------------------------------------------------
+
+.skills-marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  transform: rotate(-2deg) scale(1.05);
+  margin-top: 6rem;
+  margin-left: -5vw;
+  margin-right: -5vw;
+  padding: 1.2rem 0;
+}
+
+.skills-marquee {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+
+  span {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.5vw, 3.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0 2vw;
+    white-space: nowrap;
+
+    &.dot {
+      color: var(--accent-primary);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
     }
   }
+}
 
-  .content-container {
-    flex-direction: column;
-    padding-bottom: 80px;
+
+// -------------------------------------------------------
+// Responsive — Tablet
+// -------------------------------------------------------
+
+@media (max-width: 992px) {
+  .about-section {
+    padding: 10vh 6vw 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  // Photo comes FIRST on mobile — it's the face of the portfolio
+  .about-visual {
+    order: -1;
+    padding-bottom: 2rem;
+  }
+
+  .about-text {
+    order: 1;
+    padding-top: 0;
+  }
+
+  .about-heading {
+    font-size: clamp(3.5rem, 16vw, 8rem);
+  }
+
+  .heading-line-2 {
+    padding-left: 8vw;
+  }
+
+  .identity-chip {
+    top: -0.5rem;
+    left: 0;
+  }
+
+  .bg-initials {
+    font-size: clamp(10rem, 40vw, 18rem);
+    right: -2vw;
+  }
+
+  .photo-frame {
+    max-width: 75%;
+  }
+
+  .signature-img {
+    width: 55%;
+    margin-right: 1rem;
+    margin-top: -2rem;
+  }
+}
+
+
+// -------------------------------------------------------
+// Responsive — Mobile
+// -------------------------------------------------------
+
+@media (max-width: 576px) {
+  .about-heading {
+    font-size: clamp(3rem, 18vw, 6rem);
+  }
+
+  .heading-line-2 {
+    padding-left: 6vw;
+  }
+
+  .photo-frame {
+    max-width: 90%;
+    transform: rotate(-1.5deg);
+  }
+
+  .signature-img {
+    width: 60%;
+    margin-top: -1.5rem;
+  }
+
+  .identity-chip {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -1.2rem;
+  }
+
+  .bg-initials {
+    display: none; // too noisy at small sizes
   }
 }

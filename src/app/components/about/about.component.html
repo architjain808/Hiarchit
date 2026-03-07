@@ -1,73 +1,109 @@
-<section class="section section-2">
-  <div class="content row">
-    <!-- Desktop Profile Stack -->
-    <div class="web-view d-flex col-md-3">
-      <img class="image-bg" src="assets/images/profile-bg.svg" alt="" aria-hidden="true" />
-      <img class="profileImg" src="assets/images/profile_1.svg" alt="Archit Jain profile photo" width="260"
-        height="auto" />
-      <img class="sign" src="assets/images/sign.svg" alt="Archit Jain signature" />
-    </div>
+<section class="about-section" id="about">
+  <div class="about-grid">
 
-    <!-- Mobile Profile -->
-    <div class="mob-view mobile-image">
-      <img src="assets/images/profile-mob.svg" alt="Archit Jain" width="150" height="auto" />
-    </div>
+    <!-- LEFT: Text content -->
+    <div class="about-text">
 
-    <div class="content-container d-flex col-md-9">
-      <!-- Bio & Education -->
-      <div class="content-column big-col p-md-3 d-flex flex-column">
-        <h2 class="heading-text">Hello!</h2>
-        <p class="secondary-text">
-          Hi, I'm Archit Jain, a frontend developer specializing in
-          <b>Angular, React, and modern web technologies.</b> I focus on building
-          <b>high-performance, scalable applications</b> and have contributed to state-level
-          e-services, real-time tools, and reusable UI components.
-        </p>
-        <p class="secondary-text mt-1">
-          A <b>quick learner</b>, I'm always exploring new technologies to refine my skills.
-          Passionate about problem-solving and innovation, I strive to create
-          <b>impactful digital experiences</b>.
-        </p>
-        <p class="secondary-text mt-1">Let's connect and build something great! 🚀</p>
+      <div class="about-label" #aboutLabel>ABOUT ME</div>
 
-        <h3 class="heading-text mt-1 mt-md-3">Education</h3>
-        <div class="secondary-text">
-          <div class="fw-600">Bachelor of Technology Computer Science</div>
-          <div>Kurukshetra University</div>
-          <small>May 2018 - May 2022</small>
-
-          <div class="mt-2 fw-600">Higher Secondary Certificate</div>
-          <div>Modern School Rishikesh (ICSE Board)</div>
-          <small>Mar 2018</small>
-
-          <div class="mt-2 fw-600">Secondary School Certificate</div>
-          <div>Modern School Rishikesh (ICSE Board)</div>
-          <small>Mar 2016</small>
+      <!-- Stacked editorial heading — matches hero/experience/projects pattern -->
+      <div class="about-heading-wrap">
+        <div class="overflow-hidden">
+          <h2 class="about-heading line-solid" #headLine>WHO</h2>
+        </div>
+        <div class="overflow-hidden heading-line-2">
+          <h2 class="about-heading line-outline" #headLine>AM I<span class="about-dot">.</span></h2>
         </div>
       </div>
 
-      <!-- Skills -->
-      <div class="content-column small-col p-md-3 d-flex flex-column">
-        <h3 class="heading-text">Skills</h3>
-        <div class="secondary-text d-flex flex-row flex-md-column row">
-          @for (group of skillGroups; track group.label) {
-          <div class="fw-600 mt-2">{{ group.label }}</div>
-          @for (skill of group.skills; track skill.name) {
-          <div class="d-flex col-6 col-md-12 justify-content-between align-items-center">
-            <div class="fw-500">
-              <i class="fa-{{ skill.iconType }} {{ skill.icon }} mx-1" aria-hidden="true"></i>
-              {{ skill.name }}
-            </div>
-            <small class="mx-1 starts" style="font-size: 10px" [attr.aria-label]="skill.rating + ' out of 5 stars'">
-              @for (star of getStars(skill.rating); track $index) {
-              <i class="fa-solid {{ star }}" aria-hidden="true"></i>
-              }
-            </small>
+      <!-- Bio + education -->
+      <div class="about-body" #aboutBody>
+        <p class="bio-lead">
+          Hi, I'm <strong>Archit Jain</strong> — a frontend engineer who builds
+          Angular, React, and web experiences that <em>move people</em>.
+        </p>
+        <p class="bio-sub">
+          I focus on high-performance, scalable applications — from state-level
+          e-services to real-time tools. I live at the intersection of
+          <span class="fw-600">beautiful design</span> and robust engineering.
+        </p>
+
+        <div class="edu-block" #eduBlock>
+          <div class="edu-top">
+            <span class="edu-label">Education</span>
+            <span class="edu-year">2018 – 2022</span>
           </div>
-          }
-          }
+          <div class="edu-degree">B.Tech — Computer Science</div>
+          <div class="edu-meta">Kurukshetra University</div>
         </div>
       </div>
+
+    </div>
+
+    <!-- RIGHT: Photo + signature -->
+    <div class="about-visual" #aboutVisual>
+
+      <!-- Ghost initials — behind everything -->
+      <div class="bg-initials" aria-hidden="true">AJ</div>
+
+      <!-- Floating identity chip — top-left of visual -->
+      <div class="identity-chip" #chipEl>
+        <span class="chip-dot" aria-hidden="true"></span>
+        <span>Frontend Engineer</span>
+      </div>
+
+      <!-- Photo frame + signature in a flex column -->
+      <div class="photo-sig-wrap">
+
+        <div class="photo-frame" #photoFrame>
+          <!-- Green bookmark stripes — peek from right and top edges -->
+          <div class="frame-stripe frame-stripe--right" aria-hidden="true"></div>
+          <div class="frame-stripe frame-stripe--top" aria-hidden="true"></div>
+
+          <!-- Image -->
+          <div class="image-mask">
+            <img src="assets/images/profile_1.svg" alt="Archit Jain" class="profile-img" />
+          </div>
+
+          <!-- Name overlay at the bottom of the photo -->
+          <div class="image-name-overlay" aria-hidden="true">
+            <div class="overflow-hidden">
+              <span class="overlay-name" #overlayName>ARCHIT JAIN.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signature — flows below the frame, right-aligned -->
+        <img class="signature-img" src="assets/images/sign.svg" alt="Archit Jain's signature" #signature />
+
+      </div>
+
     </div>
   </div>
+
+  <!-- Skills marquee -->
+  <div class="skills-marquee-container" #marqueeContainer>
+    <div class="skills-marquee">
+      <span>ANGULAR</span><span class="dot">•</span>
+      <span>REACT</span><span class="dot">•</span>
+      <span>TYPESCRIPT</span><span class="dot">•</span>
+      <span>JAVASCRIPT</span><span class="dot">•</span>
+      <span>HTML5 / CSS3</span><span class="dot">•</span>
+      <span>GSAP</span><span class="dot">•</span>
+      <span>FIGMA</span><span class="dot">•</span>
+      <span>UI / UX</span><span class="dot">•</span>
+    </div>
+    <!-- Duplicate for seamless loop -->
+    <div class="skills-marquee" aria-hidden="true">
+      <span>ANGULAR</span><span class="dot">•</span>
+      <span>REACT</span><span class="dot">•</span>
+      <span>TYPESCRIPT</span><span class="dot">•</span>
+      <span>JAVASCRIPT</span><span class="dot">•</span>
+      <span>HTML5 / CSS3</span><span class="dot">•</span>
+      <span>GSAP</span><span class="dot">•</span>
+      <span>FIGMA</span><span class="dot">•</span>
+      <span>UI / UX</span><span class="dot">•</span>
+    </div>
+  </div>
+
 </section>

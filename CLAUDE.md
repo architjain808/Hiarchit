@@ -12,23 +12,25 @@ Personal portfolio website for Archit Jain, built with **Angular 19 + SSR (prere
 npm start           # Dev server at localhost:4200 (no base href, hot reload)
 npm run build       # Production build with prerender → dist/hiarchit/browser/
 npm test            # Unit tests via Karma
-node dist/hiarchit/server/server.mjs  # Run SSR server locally
+node dist/hiarchit/server/server.mjs  # Run SSR server locally after build
 ```
 
 The production build automatically prerenders all routes (currently just `/`) and sets `baseHref: /Hiarchit/`.
 
 ## Architecture
 
-**Single-page portfolio with 3 full-screen sections, implemented as standalone Angular 19 components with SSR prerendering for SEO.**
+**Single-page portfolio with full-screen sections, implemented as standalone Angular 19 components with SSR prerendering for SEO.**
 
 ```
 src/app/
-  app.component.*          # Root shell — initializes Swiper (desktop only, browser-only)
+  app.component.*          # Root shell — GSAP preloader, resume floating button
   components/
-    hero/                  # Section 1: banner SVGs + social links
-    about/                 # Section 2: profile, bio, education, skills grid
-    experience/            # Section 3: work history + projects
-    code-background/       # Fixed animated background (browser-only, typing effect)
+    hero/                  # Section 1: animated headings, 3D parallax shapes, floating badge
+    about/                 # Section 2: profile photo, bio, education, skills marquee
+    experience/            # Section 3: work history, sticky heading, timeline divider
+    projects/              # Section 4: project cards, curtain reveals, parallax images
+    custom-cursor/         # Fixed custom cursor (dot + follower ring), browser-only
+    code-background/       # Fixed animated typing-effect background, browser-only
   services/
     seo.service.ts         # Sets Meta/Title tags at runtime (SSR-compatible)
 public/
@@ -47,31 +49,57 @@ private platformId = inject(PLATFORM_ID);
 if (isPlatformBrowser(this.platformId)) { /* browser-only code */ }
 ```
 
-**Swiper (v12):** Lazy-loaded via dynamic `import('swiper')` in `AppComponent.ngAfterViewInit`. Only initialized when `window.innerWidth > 768`. On mobile, Swiper is disabled and CSS overrides (`overflow-y: auto`, `height: auto`) enable normal scroll.
+**GSAP animation pattern** — used in every component:
+```typescript
+private ctx!: gsap.Context;
 
-**Asset paths:** All images live in `public/assets/images/`. Reference them as `assets/images/filename.svg` in templates (Angular resolves relative to base href).
+ngAfterViewInit() {
+  if (isPlatformBrowser(this.platformId)) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.registerPlugin(ScrollTrigger);
+    this.initAnimations();
+  }
+}
 
-**Responsive:** `.web-view` / `.mob-view` CSS classes toggle visibility. Breakpoints: 768px (mobile) and 992px (tablet).
+private initAnimations() {
+  this.ngZone.runOutsideAngular(() => {
+    this.ctx = gsap.context(() => { /* animations here */ });
+  });
+}
 
-## SEO Implementation
+ngOnDestroy() { this.ctx?.revert(); }
+```
 
-- `src/index.html`: Static meta tags, JSON-LD Person schema, canonical URL, Open Graph, Twitter Card
-- `SeoService`: Dynamically updates Meta/Title via Angular's platform-browser services (runs on server during prerender, so tags appear in static HTML)
-- Prerendered HTML at `dist/hiarchit/browser/index.html` contains all meta tags — fully crawlable without JS
+**prefers-reduced-motion:** Every component checks `window.matchMedia('(prefers-reduced-motion: reduce)').matches` before running GSAP. Return early if true. Also globally overridden in `styles.scss`.
+
+**Bootstrap `.text-primary` conflict:** Bootstrap's `.text-primary` class renders blue, overriding our `--text-primary: #1a1a1a`. Fix pattern: add a local SCSS override in the component — `.text-primary { color: var(--text-primary) !important; }`. Do NOT use `.text-primary` for dark text — use the local override or remove the Bootstrap class.
+
+**Curtain reveal pattern** (used in projects): A `div.img-curtain` fills the image container with `var(--accent-primary)` background. GSAP animates `y: '-101%'` on scroll, sliding it off the top to reveal the image beneath. The container must have `overflow: hidden`.
+
+**Overflow-hidden heading reveal** (used in about + projects): Wrap heading in `<div class="overflow-hidden">`, then GSAP `from y: '110%'` — heading rises up from behind the clip.
+
+**Lenis smooth scroll:** `@studio-freight/lenis` is included. Initialise browser-only with SSR guard.
+
+**Asset paths:** All images in `public/assets/images/`. Reference as `assets/images/filename.svg`.
+
+**Responsive:** `.web-view` / `.mob-view` toggle visibility. Breakpoints: 768px (mobile), 992px (tablet).
+
+## Style Architecture — Design Tokens (`src/styles.scss`)
+
+```
+Colors:   --bg-primary (#F4F4F0) | --bg-secondary (#fff) | --text-primary (#1a1a1a)
+          --text-secondary (#5a5a5a) | --accent-primary (#9AD741) | --color-surface (#e5e5e5)
+Fonts:    --font-heading: 'Outfit' | --font-body: 'Inter'  (Google Fonts CDN in index.html)
+Duration: --dur-fast (150ms) | --dur-normal (300ms) | --dur-slow (600ms) | --dur-dramatic (1000ms)
+Easing:   --ease-spring | --ease-out | --ease-in-out | --ease-elastic
+```
+
+Global keyframes defined in `styles.scss`: `fadeIn`, `slideUp`, `slideInLeft`, `scaleIn`, `float`, `signatureReveal`, `pulseRing`, `rotateSlow`, `growWidth`, `scrollBounce`.
+
+Icons: Font Awesome 6 via CDN in `index.html`. Do not use `lucide-angular` (installed but not used).
 
 ## GitHub Pages Deployment
 
-GitHub Pages must be configured to use **GitHub Actions** (not a branch):
 1. Repo Settings → Pages → Source: **GitHub Actions**
 2. Push to `main` triggers `.github/workflows/deploy.yml`
-3. Workflow builds and deploys `dist/hiarchit/browser/` to Pages
-
-For local production build verification: `npm run build` then serve `dist/hiarchit/browser/` with any static server.
-
-## Style Architecture
-
-- `styles.scss`: Global styles + Bootstrap import + responsive breakpoints + utility classes (`.heading-text`, `.secondary-text`, `.web-view`, `.mob-view`, `.starts`, `.fw-600`, background animation)
-- `app.component.scss`: Swiper/section layout + floating resume button
-- Component-level `.scss`: Section-specific styles only
-- Brand accent: `#9ad741` (green) | Text: `#231f20` | Background: `#ececec`
-- Fonts: **Kalnia** (headings) + **Lato** (body) via Google Fonts CDN
+3. Workflow builds and deploys `dist/hiarchit/browser/`

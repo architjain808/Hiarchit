@@ -1,3 +1,389 @@
-.content-column {
-  height: 100%;
+// Local override — Bootstrap .text-primary = blue; ours = #1a1a1a
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+// -------------------------------------------------------
+// Section Layout
+// -------------------------------------------------------
+
+.experience-section {
+  padding: 15vh 5vw;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+
+  // Subtle large background "X" watermark — decorative only
+  &::before {
+    content: '{ }';
+    position: absolute;
+    font-family: var(--font-heading);
+    font-size: clamp(18rem, 35vw, 40rem);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.025);
+    right: -4vw;
+    bottom: -4vh;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.06em;
+    z-index: 0;
+  }
+}
+
+
+// -------------------------------------------------------
+// Section Header
+// -------------------------------------------------------
+
+.exp-header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 4rem;
+  margin-bottom: 8vh;
+  position: relative;
+  z-index: 1;
+}
+
+.exp-heading-wrap {
+  flex-shrink: 0;
+}
+
+.exp-main-heading {
+  font-size: clamp(4.5rem, 11vw, 13rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+
+  &.line-solid {
+    color: var(--text-primary);
+  }
+
+  &.line-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--text-primary);
+  }
+}
+
+.exp-dot {
+  color: var(--accent-primary);
+  -webkit-text-stroke: 0px;
+}
+
+.exp-header-sub {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 340px;
+  line-height: 1.65;
+  margin: 0;
+  align-self: flex-end;
+  padding-bottom: 0.8rem;
+}
+
+
+// -------------------------------------------------------
+// Experience List
+// -------------------------------------------------------
+
+.exp-list {
+  position: relative;
+  z-index: 1;
+}
+
+
+// -------------------------------------------------------
+// Experience Item Card
+// -------------------------------------------------------
+
+.exp-item {
+  position: relative;
+  padding: 5vh 0 5vh 2rem;
+  cursor: default;
+
+  // Hover: slightly lift and tint background
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--accent-primary);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--dur-slow) var(--ease-out);
+    border-radius: 4px;
+  }
+
+  &:hover::after {
+    opacity: 0.03;
+  }
+
+  &:hover .exp-company-link {
+    color: var(--accent-primary);
+
+    i { transform: translate(3px, -3px); }
+  }
+
+  &:hover .exp-number-bg {
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.07);
+  }
+}
+
+// Giant ghost index — right-aligned behind card
+.exp-number-bg {
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: clamp(9rem, 18vw, 18rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.04);
+  right: -1vw;
+  top: 50%;
+  transform: translateY(-50%);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  transition: -webkit-text-stroke-color var(--dur-slow) var(--ease-out);
+}
+
+// Left green accent bar — GSAP animates height 0 → 100%
+.exp-accent-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, var(--accent-primary), rgba(154, 215, 65, 0.3));
+  z-index: 2;
+  will-change: height;
+  border-radius: 0 0 3px 3px;
+}
+
+
+// -------------------------------------------------------
+// Card Rows
+// -------------------------------------------------------
+
+.exp-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.exp-idx {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.exp-duration {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+// Role + Company row
+.exp-row-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.exp-role-wrap {
+  flex: 1;
+}
+
+// Massive role title — overflow-hidden clip for GSAP reveal
+.exp-role {
+  font-size: clamp(2.8rem, 5.5vw, 6.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.exp-company-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-end;
+  padding-bottom: 0.2rem;
+  transition: color var(--dur-normal) var(--ease-out);
+
+  .exp-company {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(0, 0, 0, 0.15);
+  }
+
+  i {
+    font-size: 0.75rem;
+    transition: transform var(--dur-normal) var(--ease-out);
+  }
+}
+
+
+// -------------------------------------------------------
+// Achievements + Tags
+// -------------------------------------------------------
+
+.exp-row-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+.exp-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+
+  li {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding-left: 1.5rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.56rem;
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-primary);
+      border-radius: 50%;
+    }
+  }
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .etag {
+    padding: 5px 14px;
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    transition:
+      border-color var(--dur-normal) var(--ease-out),
+      color var(--dur-normal) var(--ease-out);
+
+    &:hover {
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+    }
+  }
+}
+
+
+// -------------------------------------------------------
+// Animated Divider Between Items
+// -------------------------------------------------------
+
+.exp-divider-line {
+  width: 0; // GSAP sweeps to 100%
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  will-change: width;
+}
+
+
+// -------------------------------------------------------
+// Responsive — Tablet
+// -------------------------------------------------------
+
+@media (max-width: 992px) {
+  .experience-section {
+    padding: 10vh 6vw;
+  }
+
+  .exp-header-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 5vh;
+  }
+
+  .exp-main-heading {
+    font-size: clamp(3.5rem, 18vw, 9rem);
+  }
+
+  .exp-header-sub {
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
+  .exp-row-main {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .exp-role {
+    font-size: clamp(2.2rem, 10vw, 4.5rem);
+  }
+
+  .exp-item {
+    padding: 4vh 0 4vh 1.5rem;
+  }
+}
+
+
+// -------------------------------------------------------
+// Responsive — Mobile
+// -------------------------------------------------------
+
+@media (max-width: 576px) {
+  .exp-main-heading {
+    font-size: clamp(3rem, 20vw, 6rem);
+  }
+
+  .exp-number-bg {
+    font-size: clamp(6rem, 28vw, 12rem);
+  }
+
+  .exp-row-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .exp-duration {
+    font-size: 0.72rem;
+  }
 }

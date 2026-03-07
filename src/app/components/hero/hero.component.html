@@ -1,25 +1,143 @@
-<section class="section section-1">
-  <div class="content d-flex flex-column justify-content-center">
-    <div class="d-flex justify-content-center">
-      <img class="image-name-web web-view" src="assets/images/banner-web.svg" alt="Archit Jain - Frontend Developer" />
-    </div>
-    <img class="image-name-mobile mob-view justify-content-start" src="assets/images/banner-phone.svg"
-      alt="Archit Jain - Frontend Developer" />
-    <div class="swipe-up" aria-hidden="true"></div>
+<section class="hero-section" id="hero">
 
-    <nav class="bottom-navigations" aria-label="Social links">
-      <div class="navigation-container">
-        <a href="https://github.com/architjain808" target="_blank" rel="noopener noreferrer" class="icons">
-          <i class="fa-brands fa-github" aria-hidden="true"></i> Github
-        </a>
-        <a href="https://www.linkedin.com/in/archit-jain-337a66195/" target="_blank" rel="noopener noreferrer"
-          class="icons">
-          <i class="fa-brands fa-linkedin" aria-hidden="true"></i> Linkedin
-        </a>
-        <a href="mailto:architjain808@gmail.com?subject=Hi%20Archit" class="icons">
-          <i class="fa-solid fa-envelope" aria-hidden="true"></i> architjain808&#64;gmail.com
-        </a>
+  <!-- Top bar: initials + availability status -->
+  <div class="hero-topbar">
+    <span class="topbar-initials" #heroMeta>AJ.</span>
+    <div class="availability-badge" #heroMeta>
+      <span class="avail-dot" aria-hidden="true"></span>
+      AVAILABLE FOR WORK
+    </div>
+  </div>
+
+  <!-- Core: giant name block + desktop visual -->
+  <div class="hero-main">
+
+    <div class="name-block">
+      <!-- Line 1: solid fill -->
+      <div class="overflow-hidden">
+        <h1 class="hero-heading" #heroLine>ARCHIT</h1>
       </div>
+
+      <!-- Role strip: bars grow outward from the text -->
+      <div class="role-strip" #roleStrip>
+        <div class="strip-bar strip-bar--left" aria-hidden="true"></div>
+        <span class="strip-text">FRONTEND ENGINEER</span>
+        <div class="strip-bar strip-bar--right" aria-hidden="true"></div>
+      </div>
+
+      <!-- Line 2: outline — indented right for editorial rhythm -->
+      <div class="overflow-hidden name-line-2">
+        <h1 class="hero-heading hero-heading--outline" #heroLine>
+          JAIN<span class="dot">.</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Desktop visual: circles + stats + badge -->
+    <div class="hero-visual" #heroVisual>
+      <div class="shape-circle circle-1 rotate-slow" #shape></div>
+      <div class="shape-circle circle-2 rotate-slow reverse" #shape></div>
+      <div class="shape-circle circle-3" #shape></div>
+      <div class="decor-dot dot-1" #shape></div>
+      <div class="decor-dot dot-2" #shape></div>
+      <div class="decor-line" #shape></div>
+
+      <!-- Stats grid overlaid on circles -->
+      <div class="stats-grid">
+        <div class="stat-item" #statItem>
+          <span class="stat-val">150<sup>+</sup></span>
+          <span class="stat-label">Components</span>
+        </div>
+        <div class="stat-item" #statItem>
+          <span class="stat-val">5<sup>+</sup></span>
+          <span class="stat-label">Years Exp.</span>
+        </div>
+        <div class="stat-item" #statItem>
+          <span class="stat-val">46<sup>%</sup></span>
+          <span class="stat-label">Dev Speed↑</span>
+        </div>
+        <div class="stat-item" #statItem>
+          <span class="stat-val">2</span>
+          <span class="stat-label">Hackathons</span>
+        </div>
+      </div>
+
+      <!-- Rotating badge -->
+      <div class="floating-badge hoverable" #floatingBadge #shape>
+        <svg class="badge-text-svg" viewBox="0 0 100 100" aria-hidden="true">
+          <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+          <text>
+            <textPath href="#circlePath">FRONTEND • UX/UI • CREATIVE • FRONTEND • UX/UI • CREATIVE • </textPath>
+          </text>
+        </svg>
+        <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom: subtitle + mobile stats + nav links -->
+  <div class="hero-bottom">
+    <div>
+      <div class="overflow-hidden">
+        <p class="hero-subtitle" #heroText>
+          Crafting <span class="fw-600">award-winning</span> digital experiences<br>
+          through Frontend Engineering.
+        </p>
+      </div>
+
+      <!-- Mobile-only stats strip -->
+      <div class="mobile-stats" #heroText>
+        <div class="mob-stat">
+          <span class="mob-stat-val">150<sup>+</sup></span>
+          <span class="mob-stat-label">Components</span>
+        </div>
+        <div class="mob-stat-div" aria-hidden="true"></div>
+        <div class="mob-stat">
+          <span class="mob-stat-val">5<sup>+</sup></span>
+          <span class="mob-stat-label">Years</span>
+        </div>
+        <div class="mob-stat-div" aria-hidden="true"></div>
+        <div class="mob-stat">
+          <span class="mob-stat-val">46<sup>%</sup></span>
+          <span class="mob-stat-label">Faster Dev</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="hero-nav" aria-label="Social links">
+      <a href="https://github.com/architjain808" target="_blank" rel="noopener noreferrer"
+        class="hoverable nav-item" #navItem>
+        Github <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+      </a>
+      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="https://www.linkedin.com/in/archit-jain-337a66195/" target="_blank" rel="noopener noreferrer"
+        class="hoverable nav-item" #navItem>
+        LinkedIn <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+      </a>
+      <span class="nav-sep" aria-hidden="true">/</span>
+      <a href="mailto:architjain808@gmail.com?subject=Hi%20Archit"
+        class="hoverable nav-item" #navItem>
+        Email <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+      </a>
     </nav>
   </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" aria-hidden="true">
+    <span class="scroll-label">SCROLL</span>
+    <div class="scroll-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <polyline points="19 12 12 19 5 12"></polyline>
+      </svg>
+    </div>
+  </div>
+
 </section>

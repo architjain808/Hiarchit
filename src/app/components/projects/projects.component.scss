@@ -1,0 +1,342 @@
+.projects-section {
+  padding: 15vh 5vw;
+  background-color: var(--bg-secondary);
+}
+
+
+/* -------------------------------------------------------
+   Section Header — stacked heading + subline
+   ------------------------------------------------------- */
+
+.section-header {
+  margin-bottom: 8vh;
+}
+
+.line-green {
+  line-height: 0.9;
+  margin-bottom: 0;
+}
+
+.line-outline {
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text-primary);
+}
+
+.section-subline {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0;
+}
+
+
+/* -------------------------------------------------------
+   Project Card
+   ------------------------------------------------------- */
+
+.project-card {
+  position: relative;
+  margin-bottom: 12vh;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Hover: shrink image inset + reveal overlay
+  &:hover {
+    .img-container {
+      clip-path: inset(3% 3% 3% 3% round 16px);
+    }
+
+    .img-overlay {
+      opacity: 1;
+
+      .overlay-label {
+        transform: translateY(0);
+      }
+
+      .overlay-icon {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .project-cta .cta-icon {
+      transform: translateX(6px);
+    }
+  }
+}
+
+// Giant decorative number — positioned behind both columns
+.project-number-bg {
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: clamp(12rem, 22vw, 20rem);
+  font-weight: 800;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.05);
+  letter-spacing: -0.05em;
+  top: -3rem;
+  left: -1vw;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* -------------------------------------------------------
+   Image Container + Effects
+   ------------------------------------------------------- */
+
+.project-visual {
+  z-index: 1;
+}
+
+.img-container {
+  position: relative;
+  height: 65vh;
+  min-height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  clip-path: inset(0% 0% 0% 0% round 16px);
+  transition: clip-path var(--dur-slow) var(--ease-spring);
+  background-color: var(--color-surface);
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-size: cover;
+  background-position: center;
+
+  // Anuvachan — dark terminal green with grid overlay evokes ancient text + modern code
+  &.bg-anuvachan {
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(154, 215, 65, 0.07) 50px),
+      repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(154, 215, 65, 0.07) 50px),
+      radial-gradient(ellipse at 35% 50%, rgba(154, 215, 65, 0.22) 0%, transparent 65%),
+      linear-gradient(160deg, #0c1c0c 0%, #152615 50%, #0a1a0a 100%);
+
+    &::after {
+      content: '</>';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 10vw, 8rem);
+      font-weight: 800;
+      color: rgba(154, 215, 65, 0.12);
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+  }
+
+  // Voils — deep indigo with accent glows evokes emergency, government, urgency
+  &.bg-voils {
+    background:
+      radial-gradient(ellipse at 75% 25%, rgba(154, 215, 65, 0.14) 0%, transparent 50%),
+      radial-gradient(ellipse at 25% 75%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+      linear-gradient(150deg, #110c22 0%, #1e1440 50%, #0c0a1a 100%);
+
+    &::after {
+      content: '{RT}';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-heading);
+      font-size: clamp(4rem, 8vw, 6.5rem);
+      font-weight: 800;
+      color: rgba(99, 102, 241, 0.18);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+  }
+}
+
+// Hover overlay — dark panel with "VIEW PROJECT" slides up from bottom
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+
+  .overlay-label {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 800;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    transform: translateY(16px);
+    transition: transform var(--dur-slow) var(--ease-spring);
+  }
+
+  .overlay-icon {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    transform: translateY(16px) scale(0.8);
+    opacity: 0;
+    transition:
+      transform var(--dur-slow) var(--ease-spring) 0.08s,
+      opacity var(--dur-slow) var(--ease-out) 0.08s;
+  }
+}
+
+// Scroll-reveal curtain — green panel that slides off upward on scroll
+.img-curtain {
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-primary);
+  z-index: 3;
+  will-change: transform;
+  // GSAP sets transform-origin + animates y: '-100%'
+}
+
+
+/* -------------------------------------------------------
+   Project Info Column
+   ------------------------------------------------------- */
+
+.project-info {
+  position: relative;
+  z-index: 1;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-index,
+.project-year {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.project-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.project-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .tag {
+    padding: 5px 14px;
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    transition: border-color var(--dur-normal) var(--ease-out),
+      color var(--dur-normal) var(--ease-out);
+
+    &:hover {
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+    }
+  }
+}
+
+// Text CTA link — replaces the cramped circle button
+.project-cta {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--accent-primary);
+  padding-bottom: 3px;
+  transition: color var(--dur-normal) var(--ease-out);
+
+  .cta-icon {
+    display: inline-flex;
+    transition: transform var(--dur-normal) var(--ease-spring);
+  }
+
+  &:hover {
+    color: var(--accent-primary);
+  }
+}
+
+
+/* -------------------------------------------------------
+   Responsive
+   ------------------------------------------------------- */
+
+@media (max-width: 992px) {
+  .projects-section {
+    padding: 10vh 2rem;
+  }
+
+  .img-container {
+    height: 45vh;
+    min-height: 300px;
+    margin-bottom: 2rem;
+  }
+
+  .project-card {
+    margin-bottom: 8vh;
+  }
+
+  .project-number-bg {
+    font-size: clamp(8rem, 25vw, 14rem);
+    top: -2rem;
+    left: -0.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 6vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-number-bg {
+    font-size: clamp(6rem, 28vw, 10rem);
+  }
+
+  .project-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}

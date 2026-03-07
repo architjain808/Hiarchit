@@ -1,6 +1,48 @@
 @use 'bootstrap/scss/bootstrap';
 
-* {
+// ================================================================
+// DESIGN TOKENS — single source of truth (see design-system/MASTER.md)
+// ================================================================
+
+:root {
+  // --- Colors ---
+  --bg-primary:       #F4F4F0;   // Warm off-white — body background
+  --bg-secondary:     #ffffff;   // Pure white — About, Projects sections
+  --text-primary:     #1a1a1a;   // Near-black — headings, primary text
+  --text-secondary:   #5a5a5a;   // Mid-gray — body copy, metadata
+  --accent-primary:   #9AD741;   // Brand green — CTAs, cursor, accents
+  --accent-secondary: #3b3b3b;   // Warm charcoal — dark surfaces, dots
+  --color-neutral:    #A1A1A1;   // Signature gray — decorative strokes, watermarks
+  --color-surface:    #e5e5e5;   // Photo/card surface — image backgrounds
+
+  // --- Typography ---
+  --font-heading: 'Outfit', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  // --- Motion: Duration Tokens ---
+  --dur-fast:     150ms;
+  --dur-normal:   300ms;
+  --dur-slow:     600ms;
+  --dur-dramatic: 1000ms;
+
+  // --- Motion: Easing Tokens ---
+  --ease-spring:  cubic-bezier(0.16, 1, 0.3, 1);    // Snappy spring deceleration (main)
+  --ease-out:     cubic-bezier(0.0, 0.0, 0.2, 1);   // Material ease-out
+  --ease-in-out:  cubic-bezier(0.4, 0, 0.2, 1);     // Smooth in-out
+  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1); // Overshoot / playful pop
+
+  // --- Legacy alias (used by existing components) ---
+  --transition-smooth: all var(--dur-slow) var(--ease-spring);
+}
+
+
+// ================================================================
+// RESET & BASE
+// ================================================================
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,123 +51,210 @@
 html,
 body {
   min-height: 100vh;
-  background-color: #ececec;
-  overflow-x: hidden;
-  overflow-y: auto;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  // overflow-x: hidden removed — conflicts with Lenis smooth scroll
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.heading-text {
-  font-family: 'Kalnia', serif;
-  font-size: 24px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
 }
 
-.secondary-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
-  text-align: justify;
-}
-
-.fw-600 {
-  font-weight: 600;
-}
-
-.fw-500 {
-  font-weight: 500;
-}
-
-.web-view {
-  display: block;
-}
-
-.mob-view {
-  display: none;
-}
-
-b {
-  color: #9ad741;
-}
-
-.starts {
-  color: #9ad741;
-}
-
-small {
-  font-size: 12px;
-}
-
-.linkIcon {
-  color: #231f20;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: #9ad741;
-  }
-}
-
-/* Background animation */
-.background-text {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 20px;
-  overflow: hidden;
-  color: #231f2010;
-  font-size: 14px;
-  line-height: 1.5;
-  white-space: pre;
-  user-select: none;
-  z-index: 0;
-  display: flex;
-  flex-wrap: wrap;
-  pointer-events: none;
-}
-
-.code-line {
-  width: 100%;
-  height: 21px;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-bottom: 0;
-}
-
-@media screen and (max-width: 992px) {
-  .heading-text {
-    font-size: 20px;
-  }
-
-  .secondary-text {
-    font-size: 13px;
-  }
+p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 @media screen and (max-width: 768px) {
-
-  html,
-  body {
-    overflow-y: auto !important;
-    height: auto !important;
+  p {
+    font-size: 1rem;
   }
+}
 
-  .web-view {
-    display: none !important;
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  // Target only color so transform-based hover effects aren't disrupted
+  transition: color var(--dur-normal) var(--ease-out);
+}
+
+
+// ================================================================
+// CUSTOM CURSOR — hide native cursor on pointer devices
+// ================================================================
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
   }
+}
 
-  .mob-view {
-    display: block;
-  }
 
-  .heading-text {
-    font-size: 18px;
-  }
+// ================================================================
+// ACCESSIBILITY — Focus Visible
+// ================================================================
 
-  .secondary-text {
-    font-size: 12px;
-  }
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
 
-  small {
-    font-size: 10px;
+
+// ================================================================
+// TYPOGRAPHY UTILITIES
+// ================================================================
+
+.hero-heading {
+  font-size: clamp(3rem, 10vw, 10rem);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section-heading {
+  font-size: clamp(3rem, 6vw, 6rem);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.text-accent    { color: var(--accent-primary);   }
+.text-neutral   { color: var(--color-neutral);    }
+
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+
+// Font family utility — fixes the non-existent .font-heading class bug
+// Usage: <span class="font-heading"> will now correctly apply Outfit
+.font-heading { font-family: var(--font-heading); }
+.font-body    { font-family: var(--font-body);    }
+
+
+// ================================================================
+// GLOBAL ANIMATION KEYFRAMES
+// ================================================================
+
+// Simple opacity fade
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// Slide up + fade — standard scroll entrance
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+// Slide in from left + fade — section heading entrance
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0);      }
+}
+
+// Scale up + fade — badge, card, icon entrances
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+// Floating / breathing — hero decorative elements, dots
+@keyframes float {
+  0%, 100% { transform: translateY(0px);    }
+  50%       { transform: translateY(-10px); }
+}
+
+// Signature reveal — clip-path sweeps left→right, simulating drawing
+@keyframes signatureReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0%   0 0); }
+}
+
+// Pulse ring — accent dot / CTA attention loop
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0    rgba(154, 215, 65, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(154, 215, 65, 0);   }
+  100% { box-shadow: 0 0 0 0    rgba(154, 215, 65, 0);   }
+}
+
+// Slow rotation — badge SVG text path (replaces local hero @keyframes rotate)
+@keyframes rotateSlow {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+// Timeline border grow — experience list entrance
+@keyframes growWidth {
+  from { width: 0;    opacity: 0; }
+  to   { width: 100%; opacity: 1; }
+}
+
+// Scroll indicator bounce — invites user to scroll
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0);   opacity: 1; }
+  50%       { transform: translateY(8px); opacity: 0.5; }
+}
+
+
+// ================================================================
+// ANIMATION UTILITY CLASSES
+// (Pair with .stagger-N for sequenced entrances)
+// ================================================================
+
+.animate-fade-in    { animation: fadeIn      var(--dur-slow)    var(--ease-out)     both; }
+.animate-slide-up   { animation: slideUp     var(--dur-slow)    var(--ease-spring)  both; }
+.animate-slide-left { animation: slideInLeft var(--dur-slow)    var(--ease-spring)  both; }
+.animate-scale-in   { animation: scaleIn     var(--dur-normal)  var(--ease-elastic) both; }
+.animate-float      { animation: float       3s                 ease-in-out         infinite; }
+.animate-pulse      { animation: pulseRing   2s                 ease-out            infinite; }
+
+// Stagger delay helpers — add alongside animation class on children
+// Max 5 steps × 150ms = 750ms total, feels snappy not slow
+.stagger-1 { animation-delay: calc(var(--dur-fast) * 1); }  // 150ms
+.stagger-2 { animation-delay: calc(var(--dur-fast) * 2); }  // 300ms
+.stagger-3 { animation-delay: calc(var(--dur-fast) * 3); }  // 450ms
+.stagger-4 { animation-delay: calc(var(--dur-fast) * 4); }  // 600ms
+.stagger-5 { animation-delay: calc(var(--dur-fast) * 5); }  // 750ms
+
+
+// ================================================================
+// LAYOUT UTILITIES
+// ================================================================
+
+.relative        { position: relative; }
+.overflow-hidden { overflow: hidden; }
+.z-10            { z-index: 10; }
+
+
+// ================================================================
+// PREFERS-REDUCED-MOTION — global override
+// All GSAP animations should also check this via matchMedia
+// ================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto   !important;
   }
 }
