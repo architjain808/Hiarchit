@@ -1,4 +1,15 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, ViewChildren, QueryList, PLATFORM_ID, inject, NgZone, OnDestroy } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  ViewChild,
+  ViewChildren,
+  QueryList,
+  PLATFORM_ID,
+  inject,
+  NgZone,
+  OnDestroy,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -12,27 +23,28 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
   // Stacked heading lines
-  @ViewChildren('headLine')     headLines!:      QueryList<ElementRef>;
+  @ViewChildren('headLine') headLines!: QueryList<ElementRef>;
   // "ABOUT ME" label
-  @ViewChild('aboutLabel')      aboutLabel!:     ElementRef<HTMLDivElement>;
+  @ViewChild('aboutLabel') aboutLabel!: ElementRef<HTMLDivElement>;
   // Right visual column (used as main scroll trigger)
-  @ViewChild('aboutVisual')     aboutVisual!:    ElementRef<HTMLDivElement>;
+  @ViewChild('aboutVisual') aboutVisual!: ElementRef<HTMLDivElement>;
   // The tilted photo frame
-  @ViewChild('photoFrame')      photoFrame!:     ElementRef<HTMLDivElement>;
+  @ViewChild('photoFrame') photoFrame!: ElementRef<HTMLDivElement>;
   // Name overlay span inside photo
-  @ViewChild('overlayName')     overlayName!:    ElementRef<HTMLSpanElement>;
+  @ViewChild('overlayName') overlayName!: ElementRef<HTMLSpanElement>;
   // Signature image
-  @ViewChild('signature')       signature!:      ElementRef<HTMLImageElement>;
+  @ViewChild('signature') signature!: ElementRef<HTMLImageElement>;
   // Floating identity chip
-  @ViewChild('chipEl')          chipEl!:         ElementRef<HTMLDivElement>;
+  @ViewChild('chipEl') chipEl!: ElementRef<HTMLDivElement>;
   // Bio + education block
-  @ViewChild('aboutBody')       aboutBody!:      ElementRef<HTMLDivElement>;
-  @ViewChild('eduBlock')        eduBlock!:       ElementRef<HTMLDivElement>;
+  @ViewChild('aboutBody') aboutBody!: ElementRef<HTMLDivElement>;
+  @ViewChild('eduBlock') eduBlock!: ElementRef<HTMLDivElement>;
   // Marquee
   @ViewChild('marqueeContainer') marqueeContainer!: ElementRef<HTMLDivElement>;
+  @ViewChildren('marqueePart') marqueeParts!: QueryList<ElementRef>;
 
   private platformId = inject(PLATFORM_ID);
-  private ngZone     = inject(NgZone);
+  private ngZone = inject(NgZone);
   private ctx!: gsap.Context;
 
   ngAfterViewInit() {
@@ -56,7 +68,6 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   private initAnimations() {
     this.ngZone.runOutsideAngular(() => {
       this.ctx = gsap.context(() => {
-
         // ─── LEFT COLUMN ────────────────────────────────────────────
 
         const textTrigger = {
@@ -74,15 +85,18 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
         });
 
         // WHO / AM I. stacked overflow-hidden reveal
-        gsap.from(this.headLines.map(el => el.nativeElement), {
-          scrollTrigger: textTrigger,
-          y: '110%',
-          rotate: 3,
-          duration: 1.1,
-          stagger: 0.15,
-          ease: 'power4.out',
-          delay: 0.1,
-        });
+        gsap.from(
+          this.headLines.map((el) => el.nativeElement),
+          {
+            scrollTrigger: textTrigger,
+            y: '110%',
+            rotate: 3,
+            duration: 1.1,
+            stagger: 0.15,
+            ease: 'power4.out',
+            delay: 0.1,
+          },
+        );
 
         // Bio paragraph stagger up
         gsap.from(this.aboutBody.nativeElement, {
@@ -107,7 +121,6 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
           duration: 0.9,
           ease: 'power3.out',
         });
-
 
         // ─── RIGHT COLUMN ───────────────────────────────────────────
 
@@ -150,7 +163,9 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
         });
 
         // Signature: clip-path draw-on — sweeps left → right, simulates writing
-        gsap.set(this.signature.nativeElement, { clipPath: 'inset(0 100% 0 0)' });
+        gsap.set(this.signature.nativeElement, {
+          clipPath: 'inset(0 100% 0 0)',
+        });
         gsap.to(this.signature.nativeElement, {
           scrollTrigger: {
             trigger: this.photoFrame.nativeElement,
@@ -162,19 +177,8 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
           delay: 0.6,
         });
 
-
         // ─── MARQUEE ─────────────────────────────────────────────────
-
-        if (this.marqueeContainer) {
-          const marqueeEls = this.marqueeContainer.nativeElement.querySelectorAll('.skills-marquee');
-          gsap.to(marqueeEls, {
-            xPercent: -100,
-            repeat: -1,
-            duration: 22,
-            ease: 'linear',
-          });
-        }
-
+        // (Now handled via CSS for better performance and reliability)
       });
     });
   }

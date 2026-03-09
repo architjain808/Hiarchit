@@ -1,9 +1,7 @@
 <section class="about-section" id="about">
   <div class="about-grid">
-
     <!-- LEFT: Text content -->
     <div class="about-text">
-
       <div class="about-label" #aboutLabel>ABOUT ME</div>
 
       <!-- Stacked editorial heading — matches hero/experience/projects pattern -->
@@ -12,19 +10,22 @@
           <h2 class="about-heading line-solid" #headLine>WHO</h2>
         </div>
         <div class="overflow-hidden heading-line-2">
-          <h2 class="about-heading line-outline" #headLine>AM I<span class="about-dot">.</span></h2>
+          <h2 class="about-heading line-outline" #headLine>
+            AM I<span class="about-dot">.</span>
+          </h2>
         </div>
       </div>
 
       <!-- Bio + education -->
       <div class="about-body" #aboutBody>
         <p class="bio-lead">
-          Hi, I'm <strong>Archit Jain</strong> — a frontend engineer who builds
-          Angular, React, and web experiences that <em>move people</em>.
+          Hi, I'm <strong>Archit Jain</strong> — a frontend engineer building
+          modern web applications that are
+          <em>fast, scalable, and intuitive.</em>
         </p>
         <p class="bio-sub">
-          I focus on high-performance, scalable applications — from state-level
-          e-services to real-time tools. I live at the intersection of
+          I focus on high-performance, scalable applications — arge-scale public
+          services to real-time tools. I live at the intersection of
           <span class="fw-600">beautiful design</span> and robust engineering.
         </p>
 
@@ -37,12 +38,10 @@
           <div class="edu-meta">Kurukshetra University</div>
         </div>
       </div>
-
     </div>
 
     <!-- RIGHT: Photo + signature -->
     <div class="about-visual" #aboutVisual>
-
       <!-- Ghost initials — behind everything -->
       <div class="bg-initials" aria-hidden="true">AJ</div>
 
@@ -54,15 +53,21 @@
 
       <!-- Photo frame + signature in a flex column -->
       <div class="photo-sig-wrap">
-
         <div class="photo-frame" #photoFrame>
           <!-- Green bookmark stripes — peek from right and top edges -->
-          <div class="frame-stripe frame-stripe--right" aria-hidden="true"></div>
+          <div
+            class="frame-stripe frame-stripe--right"
+            aria-hidden="true"
+          ></div>
           <div class="frame-stripe frame-stripe--top" aria-hidden="true"></div>
 
           <!-- Image -->
           <div class="image-mask">
-            <img src="assets/images/profile_1.svg" alt="Archit Jain" class="profile-img" />
+            <img
+              src="assets/images/profile_1.svg"
+              alt="Archit Jain"
+              class="profile-img"
+            />
           </div>
 
           <!-- Name overlay at the bottom of the photo -->
@@ -74,36 +79,36 @@
         </div>
 
         <!-- Signature — flows below the frame, right-aligned -->
-        <img class="signature-img" src="assets/images/sign.svg" alt="Archit Jain's signature" #signature />
-
+        <img
+          class="signature-img"
+          src="assets/images/sign.svg"
+          alt="Archit Jain's signature"
+          #signature
+        />
       </div>
-
     </div>
   </div>
 
   <!-- Skills marquee -->
   <div class="skills-marquee-container" #marqueeContainer>
-    <div class="skills-marquee">
-      <span>ANGULAR</span><span class="dot">•</span>
-      <span>REACT</span><span class="dot">•</span>
-      <span>TYPESCRIPT</span><span class="dot">•</span>
-      <span>JAVASCRIPT</span><span class="dot">•</span>
-      <span>HTML5 / CSS3</span><span class="dot">•</span>
-      <span>GSAP</span><span class="dot">•</span>
-      <span>FIGMA</span><span class="dot">•</span>
-      <span>UI / UX</span><span class="dot">•</span>
+    <div class="skills-marquee" #marqueePart>
+      <span>ANGULAR</span><span class="dot">•</span> <span>REACT</span
+      ><span class="dot">•</span> <span>TYPESCRIPT</span
+      ><span class="dot">•</span> <span>JAVASCRIPT</span
+      ><span class="dot">•</span> <span>HTML5 / CSS3</span
+      ><span class="dot">•</span> <span>GSAP</span><span class="dot">•</span>
+      <span>FIGMA</span><span class="dot">•</span> <span>UI / UX</span
+      ><span class="dot">•</span>
     </div>
     <!-- Duplicate for seamless loop -->
-    <div class="skills-marquee" aria-hidden="true">
-      <span>ANGULAR</span><span class="dot">•</span>
-      <span>REACT</span><span class="dot">•</span>
-      <span>TYPESCRIPT</span><span class="dot">•</span>
-      <span>JAVASCRIPT</span><span class="dot">•</span>
-      <span>HTML5 / CSS3</span><span class="dot">•</span>
-      <span>GSAP</span><span class="dot">•</span>
-      <span>FIGMA</span><span class="dot">•</span>
-      <span>UI / UX</span><span class="dot">•</span>
+    <div class="skills-marquee" aria-hidden="true" #marqueePart>
+      <span>ANGULAR</span><span class="dot">•</span> <span>REACT</span
+      ><span class="dot">•</span> <span>TYPESCRIPT</span
+      ><span class="dot">•</span> <span>JAVASCRIPT</span
+      ><span class="dot">•</span> <span>HTML5 / CSS3</span
+      ><span class="dot">•</span> <span>GSAP</span><span class="dot">•</span>
+      <span>FIGMA</span><span class="dot">•</span> <span>UI / UX</span
+      ><span class="dot">•</span>
     </div>
   </div>
-
 </section>

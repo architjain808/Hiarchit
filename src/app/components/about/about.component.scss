@@ -5,7 +5,6 @@
   overflow: hidden;
 }
 
-
 // -------------------------------------------------------
 // Main Grid
 // -------------------------------------------------------
@@ -16,7 +15,6 @@
   gap: 6vw;
   align-items: start;
 }
-
 
 // -------------------------------------------------------
 // Left — Text Column
@@ -76,8 +74,15 @@
   letter-spacing: -0.01em;
   margin-bottom: 1.4rem;
 
-  strong { font-weight: 800; }
-  em { font-style: italic; color: var(--accent-primary); font-style: normal; font-weight: 700; }
+  strong {
+    font-weight: 800;
+  }
+  em {
+    font-style: italic;
+    color: var(--accent-primary);
+    font-style: normal;
+    font-weight: 700;
+  }
 }
 
 .bio-sub {
@@ -129,7 +134,6 @@
   font-size: 0.95rem;
   color: var(--text-secondary);
 }
-
 
 // -------------------------------------------------------
 // Right — Visual Column
@@ -190,7 +194,6 @@
   }
 }
 
-
 // -------------------------------------------------------
 // Photo + Signature Wrapper (flex column)
 // -------------------------------------------------------
@@ -202,7 +205,6 @@
   flex-direction: column;
   z-index: 1;
 }
-
 
 // -------------------------------------------------------
 // Photo Frame
@@ -301,7 +303,6 @@
   line-height: 1;
 }
 
-
 // -------------------------------------------------------
 // Signature
 // -------------------------------------------------------
@@ -319,7 +320,6 @@
   position: relative;
 }
 
-
 // -------------------------------------------------------
 // Skills Marquee
 // -------------------------------------------------------
@@ -335,6 +335,12 @@
   margin-left: -5vw;
   margin-right: -5vw;
   padding: 1.2rem 0;
+  white-space: nowrap; // Ensure things don't wrap
+
+  // Pause on hover is optional but nice
+  &:hover .skills-marquee {
+    animation-play-state: paused;
+  }
 }
 
 .skills-marquee {
@@ -343,6 +349,7 @@
   align-items: center;
   justify-content: space-around;
   min-width: 100%;
+  animation: marquee-scroll 30s linear infinite; // Robust scroll
 
   span {
     font-family: var(--font-heading);
@@ -359,6 +366,14 @@
   }
 }
 
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 // -------------------------------------------------------
 // Responsive — Tablet
@@ -413,7 +428,6 @@
     margin-top: -2rem;
   }
 }
-
 
 // -------------------------------------------------------
 // Responsive — Mobile

@@ -1,5 +1,4 @@
 <section class="hero-section" id="hero">
-
   <!-- Top bar: initials + availability status -->
   <div class="hero-topbar">
     <span class="topbar-initials" #heroMeta>AJ.</span>
@@ -11,7 +10,6 @@
 
   <!-- Core: giant name block + desktop visual -->
   <div class="hero-main">
-
     <div class="name-block">
       <!-- Line 1: solid fill -->
       <div class="overflow-hidden">
@@ -45,11 +43,7 @@
       <!-- Stats grid overlaid on circles -->
       <div class="stats-grid">
         <div class="stat-item" #statItem>
-          <span class="stat-val">150<sup>+</sup></span>
-          <span class="stat-label">Components</span>
-        </div>
-        <div class="stat-item" #statItem>
-          <span class="stat-val">5<sup>+</sup></span>
+          <span class="stat-val">4<sup>+</sup></span>
           <span class="stat-label">Years Exp.</span>
         </div>
         <div class="stat-item" #statItem>
@@ -57,28 +51,42 @@
           <span class="stat-label">Dev Speed↑</span>
         </div>
         <div class="stat-item" #statItem>
-          <span class="stat-val">2</span>
-          <span class="stat-label">Hackathons</span>
+          <span class="stat-val">15<sup>+</sup></span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-item" #statItem>
+          <span class="stat-val">∞</span>
+          <span class="stat-label">Features</span>
         </div>
       </div>
 
       <!-- Rotating badge -->
       <div class="floating-badge hoverable" #floatingBadge #shape>
         <svg class="badge-text-svg" viewBox="0 0 100 100" aria-hidden="true">
-          <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+          <path
+            id="circlePath"
+            d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+          />
           <text>
-            <textPath href="#circlePath">FRONTEND • UX/UI • CREATIVE • FRONTEND • UX/UI • CREATIVE • </textPath>
+            <textPath href="#circlePath">
+              FRONTEND • UX/UI • CREATIVE • FRONTEND • UX/UI • CREATIVE •
+            </textPath>
           </text>
         </svg>
-        <svg class="badge-icon-svg" viewBox="0 0 24 24" fill="none"
-             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-             aria-hidden="true">
+        <svg
+          class="badge-icon-svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
       </div>
     </div>
-
   </div>
 
   <!-- Bottom: subtitle + mobile stats + nav links -->
@@ -86,20 +94,20 @@
     <div>
       <div class="overflow-hidden">
         <p class="hero-subtitle" #heroText>
-          Crafting <span class="fw-600">award-winning</span> digital experiences<br>
-          through Frontend Engineering.
+          <!-- Crafting <span class="fw-600">award-winning</span> digital
+          experiences<br />
+          through Frontend Engineering. -->
+          Creating frontend systems built for
+          <br />
+          <span class="fw-600">Scale and Performance</span>
         </p>
       </div>
 
       <!-- Mobile-only stats strip -->
       <div class="mobile-stats" #heroText>
-        <div class="mob-stat">
-          <span class="mob-stat-val">150<sup>+</sup></span>
-          <span class="mob-stat-label">Components</span>
-        </div>
         <div class="mob-stat-div" aria-hidden="true"></div>
         <div class="mob-stat">
-          <span class="mob-stat-val">5<sup>+</sup></span>
+          <span class="mob-stat-val">4<sup>+</sup></span>
           <span class="mob-stat-label">Years</span>
         </div>
         <div class="mob-stat-div" aria-hidden="true"></div>
@@ -107,22 +115,40 @@
           <span class="mob-stat-val">46<sup>%</sup></span>
           <span class="mob-stat-label">Faster Dev</span>
         </div>
+        <div class="mob-stat-div" aria-hidden="true"></div>
+        <div class="mob-stat">
+          <span class="mob-stat-val">15<sup>+</sup></span>
+          <span class="mob-stat-label">Projects</span>
+        </div>
       </div>
     </div>
 
     <nav class="hero-nav" aria-label="Social links">
-      <a href="https://github.com/architjain808" target="_blank" rel="noopener noreferrer"
-        class="hoverable nav-item" #navItem>
+      <a
+        href="https://github.com/architjain808"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hoverable nav-item"
+        #navItem
+      >
         Github <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
       </a>
       <span class="nav-sep" aria-hidden="true">/</span>
-      <a href="https://www.linkedin.com/in/archit-jain-337a66195/" target="_blank" rel="noopener noreferrer"
-        class="hoverable nav-item" #navItem>
+      <a
+        href="https://www.linkedin.com/in/archit-jain-337a66195/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hoverable nav-item"
+        #navItem
+      >
         LinkedIn <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
       </a>
       <span class="nav-sep" aria-hidden="true">/</span>
-      <a href="mailto:architjain808@gmail.com?subject=Hi%20Archit"
-        class="hoverable nav-item" #navItem>
+      <a
+        href="mailto:architjain808@gmail.com?subject=Hi%20Archit"
+        class="hoverable nav-item"
+        #navItem
+      >
         Email <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
       </a>
     </nav>
@@ -132,12 +158,17 @@
   <div class="scroll-indicator" aria-hidden="true">
     <span class="scroll-label">SCROLL</span>
     <div class="scroll-arrow">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
         <line x1="12" y1="5" x2="12" y2="19"></line>
         <polyline points="19 12 12 19 5 12"></polyline>
       </svg>
     </div>
   </div>
-
 </section>
