@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://architjain808.github.io/Hiarchit/sitemap.xml
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://hiarchit.online/sitemap.xml

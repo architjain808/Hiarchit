@@ -9,29 +9,43 @@
 
   <!-- SEO Meta -->
   <meta name="description"
-    content="Archit Jain — Frontend Developer specializing in Angular, React, TypeScript, and modern web technologies. Building high-performance, scalable applications." />
+    content="Archit Jain — Frontend Engineer with 4+ years building high-performance Angular and React applications. Delivered 15+ projects including UMANG (pan-India e-Governance) and ITPO Booking system. Based in India." />
   <meta name="keywords"
-    content="Archit Jain, frontend developer, Angular developer, React developer, TypeScript, JavaScript, web developer, UI developer India" />
+    content="Archit Jain, frontend developer, Angular developer, React developer, TypeScript, JavaScript, web developer, UI developer India, Next.js developer" />
   <meta name="author" content="Archit Jain" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://architjain808.github.io/Hiarchit/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://hiarchit.online/" />
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://architjain808.github.io/Hiarchit/" />
-  <meta property="og:title" content="Archit Jain | Frontend Developer" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://hiarchit.online/" />
+  <meta property="og:title" content="Archit Jain | Frontend Developer — Angular &amp; React Expert" />
   <meta property="og:description"
-    content="Frontend Developer specializing in Angular, React, and modern web technologies. Building high-performance, scalable applications." />
+    content="Frontend engineer with 4+ years building scalable web applications. Specializing in Angular, React, TypeScript. Delivered 15+ projects including government-scale platforms." />
+  <meta property="og:image" content="https://hiarchit.online/assets/images/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Archit Jain Portfolio" />
+  <meta property="profile:first_name" content="Archit" />
+  <meta property="profile:last_name" content="Jain" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Archit Jain | Frontend Developer" />
+  <meta name="twitter:title" content="Archit Jain | Frontend Developer — Angular &amp; React Expert" />
   <meta name="twitter:description"
-    content="Frontend Developer specializing in Angular, React, and modern web technologies." />
+    content="Frontend engineer with 4+ years building scalable web apps. Angular, React &amp; TypeScript specialist." />
+  <meta name="twitter:image" content="https://hiarchit.online/assets/images/og-preview.png" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/profile-mob.svg" />
+
+  <!-- LCP preload -->
+  <link rel="preload" as="image" href="assets/images/profile_1.svg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,31 +59,60 @@
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Archit Jain",
-        "url": "https://architjain808.github.io/Hiarchit/",
-        "jobTitle": "Frontend Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Daffodils Software"
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Archit Jain",
+          "url": "https://hiarchit.online/",
+          "image": "https://hiarchit.online/assets/images/profile_1.svg",
+          "jobTitle": "Frontend Engineer (SDE 2)",
+          "description": "Frontend engineer with 4+ years building high-performance Angular and React applications. Specializing in scalable web systems, TypeScript, and modern JavaScript frameworks.",
+          "email": "architjain808@gmail.com",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Daffodils Software",
+            "url": "https://www.daffodilsw.com/"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Kurukshetra University"
+          },
+          "knowsAbout": [
+            "Angular", "React", "TypeScript", "JavaScript", "HTML5", "CSS3",
+            "Next.js", "Redux Toolkit", "RxJS", "GSAP", "Material UI", "React Query"
+          ],
+          "sameAs": [
+            "https://github.com/architjain808",
+            "https://www.linkedin.com/in/archit-jain-337a66195/"
+          ]
         },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Kurukshetra University"
-        },
-        "knowsAbout": ["Angular", "React", "TypeScript", "JavaScript", "HTML5", "CSS3"],
-        "sameAs": [
-          "https://github.com/architjain808",
-          "https://www.linkedin.com/in/archit-jain-337a66195/"
-        ]
-      }
-    </script>
+        {
+          "@type": "WebSite",
+          "name": "Archit Jain — Frontend Developer Portfolio",
+          "url": "https://hiarchit.online/",
+          "author": {
+            "@type": "Person",
+            "name": "Archit Jain"
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
   <app-root></app-root>
+  <noscript>
+    <div style="padding:2rem;font-family:sans-serif;max-width:600px;margin:0 auto">
+      <h1>Archit Jain — Frontend Engineer</h1>
+      <p>Frontend engineer specializing in Angular and React. 4+ years building scalable web applications including UMANG (pan-India e-Governance platform) and ITPO Booking system. Based in India.</p>
+      <p>Contact: <a href="mailto:architjain808@gmail.com">architjain808@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/architjain808">github.com/architjain808</a> | LinkedIn: <a href="https://www.linkedin.com/in/archit-jain-337a66195/">linkedin.com/in/archit-jain-337a66195</a></p>
+      <p>This portfolio requires JavaScript. Please enable JavaScript to view the full site.</p>
+    </div>
+  </noscript>
 </body>
 
 </html>

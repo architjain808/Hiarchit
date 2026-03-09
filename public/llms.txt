@@ -1,0 +1,24 @@
+# Archit Jain — Frontend Developer Portfolio
+# https://hiarchit.online/
+
+Archit Jain is a frontend engineer with 4+ years of experience building scalable web applications
+using Angular, React, TypeScript, and Next.js.
+
+Currently: Associate IT (SDE 2) at Daffodils Software (Jan 2022–Present)
+Education: B.Tech Computer Science, Kurukshetra University (2018–2022)
+Location: India
+
+Key Projects:
+- UMANG Web: Pan-India e-Governance aggregation platform serving millions of citizens (Angular, RxJS)
+- ITPO Booking: Official exhibition booking platform for Bharat Mandapam / India Trade Promotion Organisation (Angular)
+- Anuvachan: Sanskrit/Hindi text transcription tool — 98% manual effort reduction (Angular, TypeScript, AI Integration)
+- TalentTrace: AI-powered recruitment platform with intelligent candidate matching (Next.js, AI/ML)
+
+Achievements: 46% dev speed improvement, 150+ reusable Angular components, 15+ projects delivered
+
+Skills: Angular, React, TypeScript, JavaScript, HTML5, CSS3, Next.js, Redux Toolkit, RxJS, GSAP, Material UI, React Query, Figma
+
+Contact: architjain808@gmail.com
+GitHub: https://github.com/architjain808
+LinkedIn: https://www.linkedin.com/in/archit-jain-337a66195/
+Portfolio: https://hiarchit.online/

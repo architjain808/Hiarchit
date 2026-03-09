@@ -102,6 +102,7 @@
 
 // Giant editorial heading
 .hero-heading {
+  display: block;
   font-size: clamp(5rem, 12.5vw, 15rem);
   font-weight: 800;
   text-transform: uppercase;
