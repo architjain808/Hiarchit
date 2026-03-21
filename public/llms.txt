@@ -21,6 +21,7 @@ Skills: Angular, React, TypeScript, JavaScript, HTML5, CSS3, Next.js, Redux Tool
 Blog Posts:
 - Building Modern Angular 19 Applications: https://hiarchit.online/blog/building-modern-angular-apps
 - Claude Code Just Got Seriously Powerful — Here's What Changed: https://hiarchit.online/blog/claude-code-latest-update
+- Your App Works. Now Make It Look Professional.: https://hiarchit.online/blog/professional-ui-ux-for-developers
 
 Contact: architjain808@gmail.com
 GitHub: https://github.com/architjain808
