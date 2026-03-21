@@ -21,28 +21,70 @@
 
         <h1>{{ post.title }}</h1>
 
-        <div class="tags">
-          @for (tag of post.tags; track tag) {
-            <span class="tag">{{ tag }}</span>
-          }
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+
+        <div class="post-header-footer">
+          <div class="tags">
+            @for (tag of post.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+          <button class="share-btn" [class.copied]="linkCopied" (click)="copyLink()" type="button">
+            @if (!linkCopied) {
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                <circle cx="12" cy="3" r="1.5" stroke="currentColor" stroke-width="1.4"/>
+                <circle cx="12" cy="13" r="1.5" stroke="currentColor" stroke-width="1.4"/>
+                <circle cx="3" cy="8" r="1.5" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M10.5 3.75L4.5 7.25M10.5 12.25L4.5 8.75" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <span>Copy link</span>
+            } @else {
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Copied!</span>
+            }
+          </button>
         </div>
       </header>
+
+      <div class="prose-divider"></div>
 
       <div class="prose" [innerHTML]="safeContent"></div>
 
       <footer class="post-footer">
-        <a routerLink="/blog" class="back-link">
-          <i class="fas fa-arrow-left"></i> Back to Blog
-        </a>
+        <div class="footer-inner">
+          <a routerLink="/blog" class="back-link">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+              <path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back to Blog
+          </a>
+          <div class="footer-tags">
+            @for (tag of post.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
       </footer>
 
     </article>
   } @else {
     <div class="not-found">
+      <div class="not-found-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+          <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 20c0-4.418 3.582-8 8-8s8 3.582 8 8c0 3-1.5 5.5-4 7v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24" cy="34" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
       <h2>Post not found</h2>
       <p>This article may have moved or been removed.</p>
-      <a routerLink="/blog" class="back-link">
-        <i class="fas fa-arrow-left"></i> Back to Blog
+      <a routerLink="/blog" class="back-link inline-back">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+          <path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Blog
       </a>
     </div>
   }

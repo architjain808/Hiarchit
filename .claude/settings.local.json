@@ -1,7 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(python skills/ui-ux-pro-max/scripts/search.py \"portfolio blog developer technical writing professional minimal\" --design-system -p \"Hiarchit Blog\")",
+      "Bash(python.exe skills/ui-ux-pro-max/scripts/search.py \"portfolio blog developer technical writing professional minimal\" --design-system -p \"Hiarchit Blog\")",
+      "Bash(where python3:*)",
+      "Bash(where python:*)",
+      "Bash(py --version)",
+      "Bash(\"/c/Users/lenovo/AppData/Local/Python/bin/python3.exe\" \"D:/Side Project/Hiarchit/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio blog developer technical writing professional minimal\" --design-system -p \"Hiarchit Blog\" 2>&1)",
+      "Bash(\"/c/Users/lenovo/AppData/Local/Python/bin/python3.exe\" \"D:/Side Project/Hiarchit/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio blog developer technical writing professional minimal\" --design-system -p \"Hiarchit Blog\" 2>&1)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_click"
     ]
   }
 }

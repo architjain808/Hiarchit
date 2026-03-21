@@ -16,23 +16,40 @@
   </header>
 
   <main class="posts-grid">
-    @for (post of posts; track post.slug) {
-      <article class="post-card" [routerLink]="['/blog', post.slug]">
-        <div class="post-meta">
-          <time [dateTime]="post.date">{{ post.date | date:'mediumDate' }}</time>
-          <span class="dot">·</span>
-          <span class="reading-time">{{ post.readingTime }}</span>
-        </div>
-        <h2 class="post-title">{{ post.title }}</h2>
-        <p class="post-excerpt">{{ post.excerpt }}</p>
-        <div class="post-footer">
-          <div class="tags">
-            @for (tag of post.tags; track tag) {
-              <span class="tag">{{ tag }}</span>
-            }
+    @for (post of posts; track post.slug; let idx = $index) {
+      <article
+        class="post-card"
+        [class.featured]="idx === 0"
+        [routerLink]="['/blog', post.slug]"
+      >
+        <div class="card-inner">
+          <div class="post-number">{{ idx < 9 ? '0' + (idx + 1) : (idx + 1) }}</div>
+
+          <div class="post-content">
+            <div class="post-meta">
+              <time [dateTime]="post.date">{{ post.date | date:'mediumDate' }}</time>
+              <span class="dot">·</span>
+              <span class="reading-time">{{ post.readingTime }}</span>
+            </div>
+            <h2 class="post-title">{{ post.title }}</h2>
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+            <div class="post-footer">
+              <div class="tags">
+                @for (tag of post.tags; track tag) {
+                  <span class="tag">{{ tag }}</span>
+                }
+              </div>
+              <span class="read-more">
+                Read article
+                <svg class="arrow-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
           </div>
-          <span class="read-more">Read <i class="fas fa-arrow-right"></i></span>
         </div>
+
+        <div class="card-accent-bar"></div>
       </article>
     }
   </main>
