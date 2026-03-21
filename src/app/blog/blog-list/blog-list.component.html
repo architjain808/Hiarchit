@@ -1,0 +1,40 @@
+<div class="blog-wrapper">
+
+  <nav class="blog-nav">
+    <a routerLink="/" class="nav-brand">
+      Archit<span class="accent">.</span>
+    </a>
+    <a routerLink="/" class="nav-link">
+      <i class="fas fa-arrow-left"></i> Portfolio
+    </a>
+  </nav>
+
+  <header class="blog-header">
+    <p class="label">Writing</p>
+    <h1>Blog</h1>
+    <p class="subtitle">Thoughts on frontend development, Angular, and the web.</p>
+  </header>
+
+  <main class="posts-grid">
+    @for (post of posts; track post.slug) {
+      <article class="post-card" [routerLink]="['/blog', post.slug]">
+        <div class="post-meta">
+          <time [dateTime]="post.date">{{ post.date | date:'mediumDate' }}</time>
+          <span class="dot">·</span>
+          <span class="reading-time">{{ post.readingTime }}</span>
+        </div>
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-excerpt">{{ post.excerpt }}</p>
+        <div class="post-footer">
+          <div class="tags">
+            @for (tag of post.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+          <span class="read-more">Read <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </article>
+    }
+  </main>
+
+</div>

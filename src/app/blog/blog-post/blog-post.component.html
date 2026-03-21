@@ -1,0 +1,50 @@
+<div class="blog-wrapper">
+
+  <nav class="blog-nav">
+    <a routerLink="/" class="nav-brand">
+      Archit<span class="accent">.</span>
+    </a>
+    <a routerLink="/blog" class="nav-link">
+      <i class="fas fa-arrow-left"></i> All Posts
+    </a>
+  </nav>
+
+  @if (post) {
+    <article class="post">
+
+      <header class="post-header">
+        <div class="post-meta">
+          <time [dateTime]="post.date">{{ post.date | date:'longDate' }}</time>
+          <span class="dot">·</span>
+          <span>{{ post.readingTime }}</span>
+        </div>
+
+        <h1>{{ post.title }}</h1>
+
+        <div class="tags">
+          @for (tag of post.tags; track tag) {
+            <span class="tag">{{ tag }}</span>
+          }
+        </div>
+      </header>
+
+      <div class="prose" [innerHTML]="post.content"></div>
+
+      <footer class="post-footer">
+        <a routerLink="/blog" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
+      </footer>
+
+    </article>
+  } @else {
+    <div class="not-found">
+      <h2>Post not found</h2>
+      <p>This article may have moved or been removed.</p>
+      <a routerLink="/blog" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+    </div>
+  }
+
+</div>

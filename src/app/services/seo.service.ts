@@ -6,6 +6,27 @@ export class SeoService {
   private meta = inject(Meta);
   private title = inject(Title);
 
+  setBlogListSEO(): void {
+    this.title.setTitle('Blog | Archit Jain — Frontend Developer');
+    this.meta.updateTag({ name: 'description', content: 'Thoughts on frontend development, Angular, TypeScript, and the modern web by Archit Jain.' });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ property: 'og:title', content: 'Blog | Archit Jain' });
+    this.meta.updateTag({ property: 'og:description', content: 'Thoughts on frontend development, Angular, TypeScript, and the modern web.' });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+  }
+
+  setBlogPostSEO(title: string, excerpt: string): void {
+    this.title.setTitle(`${title} | Archit Jain`);
+    this.meta.updateTag({ name: 'description', content: excerpt });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ property: 'og:title', content: title });
+    this.meta.updateTag({ property: 'og:description', content: excerpt });
+    this.meta.updateTag({ property: 'og:type', content: 'article' });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
+    this.meta.updateTag({ name: 'twitter:title', content: title });
+    this.meta.updateTag({ name: 'twitter:description', content: excerpt });
+  }
+
   setDefaultSEO(): void {
     this.title.setTitle('Archit Jain | Frontend Developer - Angular & React Expert');
 
