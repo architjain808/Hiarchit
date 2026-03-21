@@ -2,131 +2,120 @@ import { BlogPost } from '../posts.registry';
 
 export const CLAUDE_CODE_LATEST_UPDATE: BlogPost = {
   slug: 'claude-code-latest-update',
-  title: 'Claude Code Just Got Seriously Powerful — Here\'s What Changed',
+  title: 'Claude Code Just Changed How I Build Software — Here\'s the Proof',
   date: '2026-03-21',
   excerpt:
-    'Sub-agents, hooks, persistent memory, and MCP servers — four Claude Code features that compound on each other and turn Claude from a coding assistant into something closer to an autonomous engineering team.',
+    'I\'ve been using Claude Code\'s latest update — sub-agents, hooks, persistent memory, MCP servers — for two weeks straight. My review cycle dropped by half. Here\'s exactly what changed.',
   tags: ['Claude Code', 'AI Tools', 'Dev Productivity', 'Automation'],
   readingTime: '7 min read',
   content: `
 <p>
-  Most developers using Claude Code are still using it like a smart autocomplete — one prompt,
-  one file, one answer. That workflow just got obsoleted.
+  Two weeks ago I started using the latest Claude Code update (Claude 4.5/4.6 Sonnet + Opus models) for every task
+  at work. My review cycle dropped by roughly half. Not because Claude writes better code — it always
+  did that. Because I stopped doing the work <em>around</em> the code: formatting, linting, test running,
+  context re-explaining, route finding.
 </p>
 
 <p>
-  The latest Claude Code update (Claude 4.5/4.6 models with the Sonnet and Opus tiers) ships
-  four features that compound on each other: <strong>sub-agents</strong>, <strong>hooks</strong>,
-  a <strong>persistent memory system</strong>, and deep <strong>MCP server integration</strong>.
-  Together they turn Claude Code from a coding assistant into something closer to an autonomous
-  engineering team you can direct with a single sentence.
+  Four features made this happen. Here's what each one does and what it looks like in a real codebase.
 </p>
+
+<h2>1. Sub-agents: the work happens in parallel now</h2>
 
 <p>
-  Here's what each one does, why it matters, and how I'm using them in my own workflow right now.
+  Claude Code can spawn specialised sub-agents mid-task. You don't set them up — Claude decides when
+  a sub-task needs its own isolated agent. There are purpose-built types: <strong>Explore</strong>
+  (codebase search and analysis), <strong>Plan</strong> (architecture and strategy), and
+  <strong>General-Purpose</strong> (web fetch, command execution, research).
 </p>
 
-<h2>Sub-agents: Claude spawning Claude</h2>
-
-<p>
-  The biggest architectural shift in Claude Code is the Agent tool. Claude can now spawn
-  specialised sub-agents mid-task — each with its own tool access, system prompt, and scope
-  of work. You don't configure this yourself. Claude decides when a sub-task warrants its
-  own agent.
-</p>
-
-<figure style="margin: 2rem 0;">
-  <svg
-    viewBox="0 0 680 280"
-    width="100%"
-    xmlns="http://www.w3.org/2000/svg"
-    role="img"
-    aria-label="Diagram showing Claude Code spawning three parallel sub-agents"
-  >
+<figure style="margin: 2.5rem 0;">
+  <svg viewBox="0 0 680 290" width="100%" xmlns="http://www.w3.org/2000/svg" role="img"
+       aria-label="Architecture diagram: Claude Code main agent spawning three sub-agents in parallel">
     <defs>
-      <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5"
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5"
               markerWidth="6" markerHeight="6" orient="auto">
         <path d="M2 1L8 5L2 9" fill="none" stroke="#A1A1A1"
               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </marker>
     </defs>
 
-    <!-- Main agent box -->
-    <rect x="240" y="20" width="200" height="56" rx="10"
-          style="fill:#9AD741; stroke:#9AD741; stroke-width:1.5"/>
-    <text x="340" y="44" text-anchor="middle" dominant-baseline="central"
-          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:14px; font-weight:700;">Claude Code</text>
-    <text x="340" y="62" text-anchor="middle" dominant-baseline="central"
-          style="fill:#1a1a1a; font-family:'Inter',sans-serif; font-size:11px;">Main agent (Opus 4.6 / Sonnet 4.6)</text>
+    <!-- Main agent -->
+    <rect x="215" y="16" width="250" height="60" rx="12"
+          style="fill:#9AD741; stroke:none;"/>
+    <text x="340" y="41" text-anchor="middle" dominant-baseline="central"
+          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:15px; font-weight:800;">Claude Code</text>
+    <text x="340" y="60" text-anchor="middle" dominant-baseline="central"
+          style="fill:#1a1a1a; font-family:'Inter',sans-serif; font-size:11px; font-weight:500;">Opus 4.6 · Sonnet 4.6</text>
 
-    <!-- Arrows down -->
-    <line x1="200" y1="100" x2="115" y2="158" stroke="#A1A1A1" stroke-width="1.5" marker-end="url(#arr)"/>
-    <line x1="340" y1="76" x2="340" y2="158" stroke="#A1A1A1" stroke-width="1.5" marker-end="url(#arr)"/>
-    <line x1="480" y1="100" x2="565" y2="158" stroke="#A1A1A1" stroke-width="1.5" marker-end="url(#arr)"/>
+    <!-- connector lines -->
+    <line x1="170" y1="96" x2="100" y2="166" stroke="#e5e5e5" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="340" y1="76" x2="340" y2="166" stroke="#e5e5e5" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="510" y1="96" x2="580" y2="166" stroke="#e5e5e5" stroke-width="2" marker-end="url(#arrowhead)"/>
 
-    <!-- Spawn label -->
-    <text x="340" y="126" text-anchor="middle"
-          style="fill:#5a5a5a; font-family:'Inter',sans-serif; font-size:11px;">spawns in parallel</text>
+    <text x="340" y="134" text-anchor="middle"
+          style="fill:#A1A1A1; font-family:'Inter',sans-serif; font-size:11px;">spawns in parallel</text>
 
-    <!-- Sub-agent boxes -->
-    <rect x="20" y="158" width="180" height="56" rx="10"
-          style="fill:#ffffff; stroke:#e5e5e5; stroke-width:1.5"/>
-    <text x="110" y="182" text-anchor="middle" dominant-baseline="central"
-          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600;">Explore</text>
-    <text x="110" y="200" text-anchor="middle" dominant-baseline="central"
-          style="fill:#5a5a5a; font-family:'Inter',sans-serif; font-size:11px;">codebase search &amp; analysis</text>
+    <!-- Sub-agent: Explore -->
+    <rect x="14" y="166" width="186" height="64" rx="10"
+          style="fill:#ffffff; stroke:#e5e5e5; stroke-width:1.5;"/>
+    <text x="107" y="190" text-anchor="middle" dominant-baseline="central"
+          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:13px; font-weight:700;">Explore</text>
+    <text x="107" y="210" text-anchor="middle" dominant-baseline="central"
+          style="fill:#5a5a5a; font-family:'Inter',sans-serif; font-size:11px;">codebase search &amp; map</text>
 
-    <rect x="240" y="158" width="200" height="56" rx="10"
-          style="fill:#ffffff; stroke:#e5e5e5; stroke-width:1.5"/>
-    <text x="340" y="182" text-anchor="middle" dominant-baseline="central"
-          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600;">Plan</text>
-    <text x="340" y="200" text-anchor="middle" dominant-baseline="central"
+    <!-- Sub-agent: Plan -->
+    <rect x="234" y="166" width="212" height="64" rx="10"
+          style="fill:#ffffff; stroke:#e5e5e5; stroke-width:1.5;"/>
+    <text x="340" y="190" text-anchor="middle" dominant-baseline="central"
+          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:13px; font-weight:700;">Plan</text>
+    <text x="340" y="210" text-anchor="middle" dominant-baseline="central"
           style="fill:#5a5a5a; font-family:'Inter',sans-serif; font-size:11px;">architecture &amp; strategy</text>
 
-    <rect x="480" y="158" width="180" height="56" rx="10"
-          style="fill:#ffffff; stroke:#e5e5e5; stroke-width:1.5"/>
-    <text x="570" y="182" text-anchor="middle" dominant-baseline="central"
-          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:13px; font-weight:600;">General-Purpose</text>
-    <text x="570" y="200" text-anchor="middle" dominant-baseline="central"
-          style="fill:#5a5a5a; font-family:'Inter',sans-serif; font-size:11px;">web fetch, execution</text>
+    <!-- Sub-agent: General Purpose -->
+    <rect x="480" y="166" width="186" height="64" rx="10"
+          style="fill:#ffffff; stroke:#e5e5e5; stroke-width:1.5;"/>
+    <text x="573" y="190" text-anchor="middle" dominant-baseline="central"
+          style="fill:#1a1a1a; font-family:'Outfit',sans-serif; font-size:13px; font-weight:700;">General-Purpose</text>
+    <text x="573" y="210" text-anchor="middle" dominant-baseline="central"
+          style="fill:#5a5a5a; font-family:'Inter',sans-serif; font-size:11px;">web fetch · run tests</text>
 
-    <!-- Results arrow back up -->
-    <line x1="340" y1="214" x2="340" y2="245" stroke="#A1A1A1" stroke-width="1.5" marker-end="url(#arr)"/>
-    <text x="340" y="262" text-anchor="middle"
-          style="fill:#5a5a5a; font-family:'Inter',sans-serif; font-size:11px;">results merged back to main context</text>
+    <!-- merge line -->
+    <line x1="340" y1="230" x2="340" y2="262" stroke="#e5e5e5" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="340" y="278" text-anchor="middle"
+          style="fill:#A1A1A1; font-family:'Inter',sans-serif; font-size:11px;">results merged → main agent writes</text>
   </svg>
-  <figcaption style="text-align:center; font-size:0.82rem; color:#5a5a5a; margin-top:0.5rem;">
-    Claude Code can spawn multiple specialist sub-agents that run independently and in parallel
+  <figcaption style="text-align:center; font-size:0.8rem; color:#5a5a5a; margin-top:0.75rem;">
+    Claude dispatches sub-agents that run simultaneously — the main agent synthesises and writes
   </figcaption>
 </figure>
 
 <p>
-  In practice this looks like: you ask Claude to "refactor the auth module and update all tests."
-  Without sub-agents, Claude reads every file sequentially. With sub-agents, it dispatches an
-  Explore agent to map the codebase, a Plan agent to design the refactor, and a general-purpose
-  agent to run the existing tests — all at the same time. The main agent synthesises the results
-  and does the actual writing.
+  Practical example: I asked Claude to "refactor the auth service and update all affected tests."
+  Old Claude: reads files one by one, misses half the test coverage, asks clarifying questions.
+  New Claude: Explore agent maps every file that imports <code>AuthService</code>, Plan agent
+  designs the new interface, General-Purpose agent runs the existing test suite to capture the
+  baseline — all at the same time. By the time Claude starts writing, it has a complete picture.
 </p>
 
 <p>
-  The killer feature here is <strong>worktree isolation</strong>. Sub-agents can be launched
-  in a temporary git worktree — a full isolated copy of your repo. Changes in the worktree
-  don't touch your working branch until the agent succeeds and the result is merged. If the
-  agent breaks the build, the worktree is discarded. Zero blast radius.
+  The other sub-agent feature nobody talks about: <strong>worktree isolation</strong>. Sub-agents
+  can work in a temporary git worktree — a full isolated copy of your repo. If the agent breaks
+  the build, the worktree is discarded and your branch is untouched. Zero blast radius on risky
+  tasks. This alone made me stop hesitating before large refactors.
 </p>
 
 <p>
-  There's also a <code>run_in_background</code> parameter. Fire off a long-running agent —
-  say, running your full test suite or a web scrape — and keep working. Claude notifies you
-  when it's done. No polling, no blocking.
+  There's also <code>run_in_background</code>. Fire off an agent to run your full test suite
+  or scrape documentation, and keep working on something else. Claude notifies you when it's done.
 </p>
 
-<h2>Hooks: automate the automator</h2>
+<h2>2. Hooks: a quality gate Claude can't bypass</h2>
 
 <p>
-  Hooks are shell commands that Claude Code runs automatically before or after specific events —
-  file edits, bash commands, agent spawns, session end. You configure them in
-  <code>settings.json</code>.
+  Hooks are shell commands that Claude Code runs automatically before or after specific events.
+  You define them once in <code>settings.json</code> and they fire on every relevant Claude action
+  — file edits, bash commands, agent spawns, session end.
 </p>
 
 <pre><code>{
@@ -135,10 +124,7 @@ export const CLAUDE_CODE_LATEST_UPDATE: BlogPost = {
       {
         "matcher": "Edit|Write",
         "hooks": [
-          {
-            "type": "command",
-            "command": "npx prettier --write \\"$CLAUDE_FILE_PATHS\\""
-          }
+          { "type": "command", "command": "npx prettier --write \\"$CLAUDE_FILE_PATHS\\"" }
         ]
       }
     ]
@@ -146,117 +132,91 @@ export const CLAUDE_CODE_LATEST_UPDATE: BlogPost = {
 }</code></pre>
 
 <p>
-  That single config means every file Claude edits gets auto-formatted. No more
-  "Claude, also run prettier" as a follow-up. You can chain hooks: format → lint →
-  type-check, all firing automatically after every write.
+  That's auto-format on every Claude edit. No follow-up prompt needed. But the real power is
+  that hooks can <em>block Claude's next action</em>. If your linter exits non-zero, Claude
+  receives that as feedback and must fix the violation before it can continue. It's a quality
+  gate Claude has to satisfy — not you. I chain three: Prettier → ESLint → TypeScript check.
+  Claude cannot deliver a file that fails any of them.
 </p>
 
 <p>
-  More powerful: hooks can <em>block</em> Claude's next action. If your linter
-  returns a non-zero exit code, Claude sees that as feedback and must fix the issue
-  before continuing. It's a quality gate that can't be skipped — Claude has to
-  satisfy it, not you.
+  The hooks I run on every project now: auto-format on edit, run affected unit tests after logic
+  file changes, and a post-session hook that prints a git diff so I know exactly what changed
+  before I open the PR.
 </p>
+
+<h2>3. Persistent memory: context that survives sessions</h2>
 
 <p>
-  The hooks I run in every project now: auto-format on edit, run affected unit tests
-  after any logic file changes, and a post-session hook that prints a diff summary
-  so I know exactly what changed before I review the PR.
+  This is the most underrated feature. Claude Code maintains a file-based memory store per project
+  at <code>~/.claude/projects/[project]/memory/</code>. It reads these at the start of every
+  session and updates them when it learns something new about how you work.
 </p>
 
-<h2>Memory: Claude that actually remembers you</h2>
-
-<p>
-  The memory system is the most underrated feature in this update. Claude Code now
-  maintains a persistent, file-based memory store per project — a directory of
-  structured markdown files it reads at the start of each session.
-</p>
-
-<p>
-  There are four memory types:
-</p>
+<p>Four memory types:</p>
 
 <ul>
-  <li><strong>user</strong> — who you are, your experience level, preferences</li>
-  <li><strong>feedback</strong> — rules Claude should follow based on past corrections</li>
-  <li><strong>project</strong> — current goals, deadlines, architectural decisions</li>
-  <li><strong>reference</strong> — where to find things (Linear boards, Grafana dashboards, Slack channels)</li>
+  <li><strong>user</strong> — your experience level, preferences, workflow style</li>
+  <li><strong>feedback</strong> — rules from past corrections ("never mock the database — we got burned before")</li>
+  <li><strong>project</strong> — current goals, deadlines, architectural decisions, stakeholder constraints</li>
+  <li><strong>reference</strong> — where things live (Linear project names, Grafana dashboards, Slack channels)</li>
 </ul>
 
 <p>
-  In practice, after a few sessions Claude knows: you prefer integration tests over mocks
-  (because you got burned by mock drift last quarter), the auth rewrite is compliance-driven
-  not tech-debt, and the merge freeze starts Thursday. You never type any of that again.
+  After three sessions on a project, Claude knows: integration tests only, no mocks; the auth
+  rewrite is compliance-driven not tech-debt; deployment freeze starts Thursday. You stop
+  re-explaining this at the top of every session. The productivity gain here is invisible until
+  you've used it for a week — then losing it would feel like losing a senior teammate.
+</p>
+
+<h2>4. MCP servers: Claude with real tools</h2>
+
+<p>
+  Model Context Protocol lets you plug external tools into Claude Code. Anthropic ships two that
+  change the daily workflow immediately.
 </p>
 
 <p>
-  The memory files live in <code>~/.claude/projects/[your-project]/memory/</code>.
-  They're plain markdown — you can read, edit, or delete them directly. And Claude updates
-  them proactively when it learns something new about how you like to work. It's the closest
-  thing to a persistent coding context I've seen in any AI tool.
+  <strong>Playwright MCP</strong> — Claude opens a real Chromium browser, navigates your app,
+  clicks through flows, takes screenshots, and reports what's broken. One command to install:
 </p>
 
-<h2>MCP servers: bring your own tools</h2>
+<pre><code>claude mcp add playwright npx @playwright/mcp@latest</code></pre>
 
 <p>
-  Model Context Protocol (MCP) is the integration layer that makes Claude Code extensible.
-  It's a standard protocol for connecting Claude to external tools — databases, browser
-  automation, design tools, CI systems — without Anthropic having to build native integrations
-  for everything.
+  Now instead of "Claude, here's the error from my test run," you say "check if the checkout
+  flow still works after my cart changes" and Claude actually does it — browser open, steps
+  executed, screenshot attached to its response.
 </p>
 
 <p>
-  The Playwright MCP server is the best example of what this enables. With it configured,
-  Claude can literally open a browser, navigate to your app, click through a flow, take a
-  screenshot, and tell you what's broken — all from a single prompt. No Selenium boilerplate,
-  no test harness setup. Just "check if the checkout flow still works on mobile."
+  <strong>IDE MCP</strong> — Claude sees your editor's live diagnostics: TypeScript errors,
+  ESLint warnings, the actual red squiggles. It fixes errors it can <em>see</em> in real time,
+  not just errors that surface in build output. This closed a feedback loop I didn't even realise
+  I was managing manually.
 </p>
 
-<pre><code># Add Playwright MCP to your Claude Code config
-claude mcp add playwright npx @playwright/mcp@latest
-
-# Now Claude can use browser tools:
-# browser_navigate, browser_click, browser_take_screenshot, etc.</code></pre>
+<h2>The actual workflow change</h2>
 
 <p>
-  The IDE MCP server is the other one worth installing immediately. It gives Claude
-  access to your editor's diagnostics — TypeScript errors, ESLint warnings, the actual
-  red squiggles in your files. Claude can fix errors it can <em>see</em> in real-time,
-  not just errors that appear in build output.
-</p>
-
-<h2>What this actually changes about how you work</h2>
-
-<p>
-  The old workflow: describe a task → Claude does it → you review → repeat for every
-  edge case you spot.
+  Before: describe task → Claude implements → review → spot an edge case → re-prompt → repeat
+  until you're satisfied.
 </p>
 
 <p>
-  The new workflow: describe a task → Claude plans it (Plan agent), researches your
-  codebase (Explore agent), implements it in an isolated worktree, runs your hooks
-  (auto-format, lint, test), asks for your approval, then merges. You review a finished,
-  verified result — not a first draft.
+  After: describe task → Claude plans (Plan agent) + maps codebase (Explore agent) simultaneously
+  → implements in isolated worktree → hooks auto-format/lint/test → Claude surfaces any failures
+  and fixes them → presents a verified, passing result for your review.
 </p>
 
 <p>
-  The shift is from "Claude as a fast typist" to "Claude as a careful engineer." The hooks
-  and agents are the difference. Hooks mean Claude can't deliver broken code without knowing
-  it's broken. Agents mean Claude can parallelize research and implementation the same way
-  a senior dev delegates to juniors.
+  You're reviewing a finished result, not a first draft. That's the shift.
 </p>
 
 <p>
-  If you're still running Claude Code without hooks configured, you're leaving the most
-  impactful part of the tool on the table. Start there — add a formatter hook today and
-  see how it changes the output quality immediately.
-</p>
-
-<p>
-  The memory system compounds over time. The longer you use it on a project, the better
-  Claude understands your team's conventions without you spelling them out every session.
-  It's the first AI tool where starting a new session actually feels like continuing a
-  conversation rather than starting from scratch.
+  The hooks are the fastest win. If you take one thing from this post: add a Prettier hook today.
+  You'll see the output quality change immediately. Then add lint. Then type-check. Build the
+  quality gate one layer at a time and Claude gets progressively harder to disappoint.
 </p>
   `.trim(),
 };

@@ -28,7 +28,7 @@
         </div>
       </header>
 
-      <div class="prose" [innerHTML]="post.content"></div>
+      <div class="prose" [innerHTML]="safeContent"></div>
 
       <footer class="post-footer">
         <a routerLink="/blog" class="back-link">
