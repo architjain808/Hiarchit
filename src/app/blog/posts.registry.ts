@@ -13,9 +13,11 @@ export interface BlogPost {
 // Add a new import + entry here whenever you publish a new post.
 // ---------------------------------------------------------------------------
 import { BUILDING_MODERN_ANGULAR_APPS } from './posts/building-modern-angular-apps';
+import { CLAUDE_CODE_LATEST_UPDATE } from './posts/claude-code-latest-update';
 
 export const POST_REGISTRY: BlogPost[] = [
   BUILDING_MODERN_ANGULAR_APPS,
+  CLAUDE_CODE_LATEST_UPDATE,
 ];
 
 // Convenience helpers
