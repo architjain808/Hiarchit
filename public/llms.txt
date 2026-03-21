@@ -22,6 +22,7 @@ Blog Posts:
 - Building Modern Angular 19 Applications: https://hiarchit.online/blog/building-modern-angular-apps
 - Claude Code Just Got Seriously Powerful — Here's What Changed: https://hiarchit.online/blog/claude-code-latest-update
 - Your App Works. Now Make It Look Professional.: https://hiarchit.online/blog/professional-ui-ux-for-developers
+- 10 Things You Can Do With Claude's New Memory Feature (That You Couldn't Before): https://hiarchit.online/blog/claude-memory-feature
 
 Contact: architjain808@gmail.com
 GitHub: https://github.com/architjain808
