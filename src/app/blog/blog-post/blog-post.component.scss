@@ -27,7 +27,9 @@
   color: var(--text-primary);
   text-decoration: none;
 
-  .accent { color: var(--accent-primary); }
+  .accent {
+    color: var(--accent-primary);
+  }
 }
 
 .nav-link {
@@ -42,7 +44,9 @@
   cursor: pointer;
   transition: color var(--dur-normal) var(--ease-out);
 
-  &:hover { color: var(--text-primary); }
+  &:hover {
+    color: var(--text-primary);
+  }
 }
 
 // ── Post header ──────────────────────────────────────────────────────────────
@@ -60,8 +64,12 @@
   color: var(--text-secondary);
   margin-bottom: 1.25rem;
 
-  .dot { color: var(--color-surface); }
-  time { font-weight: 600; }
+  .dot {
+    color: var(--color-surface);
+  }
+  time {
+    font-weight: 600;
+  }
 }
 
 h1 {
@@ -143,9 +151,15 @@ h1 {
 }
 
 @keyframes copyPop {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.08); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 // ── Divider ───────────────────────────────────────────────────────────────────
@@ -223,7 +237,7 @@ h1 {
 
     // Accent left border
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -235,7 +249,7 @@ h1 {
 
     // Terminal dots
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0.85rem;
       right: 1rem;
@@ -267,7 +281,7 @@ h1 {
   }
 
   code {
-    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
     font-size: 0.875em;
     background: rgba(154, 215, 65, 0.1);
     color: var(--text-primary);
@@ -306,7 +320,7 @@ h1 {
       line-height: 1.7;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0.7em;
@@ -407,8 +421,12 @@ h1 {
       text-align: left;
       border-bottom: 2px solid var(--color-surface);
 
-      &:first-child { border-radius: 8px 0 0 0; }
-      &:last-child  { border-radius: 0 8px 0 0; }
+      &:first-child {
+        border-radius: 8px 0 0 0;
+      }
+      &:last-child {
+        border-radius: 0 8px 0 0;
+      }
     }
 
     td {
@@ -519,7 +537,9 @@ h1 {
     gap: 0.75rem;
     color: var(--text-primary);
 
-    svg { transform: translateX(-3px); }
+    svg {
+      transform: translateX(-3px);
+    }
   }
 }
 
@@ -577,8 +597,12 @@ h1 {
   .prose {
     font-size: 1rem;
 
-    h2 { font-size: 1.3rem; }
-    h3 { font-size: 1.1rem; }
+    h2 {
+      font-size: 1.3rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+    }
 
     pre {
       border-radius: 8px;
@@ -615,5 +639,175 @@ h1 {
   &:hover {
     color: #6aab1f !important;
     border-color: var(--accent-primary);
+  }
+}
+
+// ── Enhanced code blocks (JS-injected wrapper) ────────────────────────────────
+:host ::ng-deep .prose {
+  .code-block {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.75rem 0 2.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.07),
+      0 4px 14px rgba(0, 0, 0, 0.09);
+
+    // Accent left bar — solid, no gradient fade
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent-primary);
+      z-index: 3;
+    }
+
+    // Override base pre styles inside wrapper
+    pre {
+      margin: 0 !important;
+      border-radius: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+      padding-left: 1rem !important;
+
+      &::before,
+      &::after {
+        display: none !important;
+      }
+    }
+  }
+
+  // Header bar
+  .code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem 0.6rem 1.25rem;
+    background: #0e0e0c;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    user-select: none;
+  }
+
+  .cbh-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  // Mac-style traffic lights
+  .code-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    span {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-r {
+      background: #ff5f57;
+      box-shadow: 0 0 0 0.75px rgba(255, 50, 50, 0.35);
+    }
+    .dot-y {
+      background: #ffbd2e;
+      box-shadow: 0 0 0 0.75px rgba(255, 180, 0, 0.35);
+    }
+    .dot-g {
+      background: #28c840;
+      box-shadow: 0 0 0 0.75px rgba(0, 180, 0, 0.35);
+    }
+  }
+
+  // Language label
+  .code-lang {
+    font-family: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+    font-size: 0.67rem;
+    font-weight: 600;
+    color: rgba(154, 215, 65, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+
+  // Copy button
+  .code-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 7px;
+    padding: 0.26rem 0.65rem;
+    cursor: pointer;
+    line-height: 1;
+    transition:
+      color 150ms ease,
+      border-color 150ms ease,
+      background 150ms ease,
+      transform 100ms ease;
+    min-width: 72px;
+    justify-content: center;
+
+    svg {
+      flex-shrink: 0;
+      opacity: 0.65;
+      transition: opacity 150ms ease;
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.82);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-1px);
+
+      svg {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &.copied {
+      color: var(--accent-primary);
+      border-color: rgba(154, 215, 65, 0.4);
+      background: rgba(154, 215, 65, 0.1);
+      animation: copyPop var(--dur-normal) var(--ease-spring);
+
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :host ::ng-deep .prose {
+    .code-block {
+      border-radius: 10px;
+      margin: 1.25rem 0 1.75rem;
+
+      pre {
+        border-radius: 0 0 8px 8px !important;
+      }
+    }
+
+    .code-dots {
+      display: none;
+    }
   }
 }
