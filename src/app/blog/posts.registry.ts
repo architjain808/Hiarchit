@@ -16,12 +16,14 @@ import { BUILDING_MODERN_ANGULAR_APPS } from './posts/building-modern-angular-ap
 import { CLAUDE_CODE_LATEST_UPDATE } from './posts/claude-code-latest-update';
 import { PROFESSIONAL_UI_UX_FOR_DEVELOPERS } from './posts/professional-ui-ux-for-developers';
 import { CLAUDE_MEMORY_FEATURE } from './posts/claude-memory-feature';
+import { CLAUDE_IMPLEMENT_DESIGN_FIGMA } from './posts/claude-implement-design-figma';
 
 export const POST_REGISTRY: BlogPost[] = [
   BUILDING_MODERN_ANGULAR_APPS,
   CLAUDE_CODE_LATEST_UPDATE,
   PROFESSIONAL_UI_UX_FOR_DEVELOPERS,
   CLAUDE_MEMORY_FEATURE,
+  CLAUDE_IMPLEMENT_DESIGN_FIGMA,
 ];
 
 // Convenience helpers

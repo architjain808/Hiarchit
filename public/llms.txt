@@ -23,6 +23,7 @@ Blog Posts:
 - Claude Code Just Got Seriously Powerful — Here's What Changed: https://hiarchit.online/blog/claude-code-latest-update
 - Your App Works. Now Make It Look Professional.: https://hiarchit.online/blog/professional-ui-ux-for-developers
 - 10 Things You Can Do With Claude's New Memory Feature (That You Couldn't Before): https://hiarchit.online/blog/claude-memory-feature
+- Claude's Built-In 'Implement Design' Skill: Turn Any Figma Link Into Code: https://hiarchit.online/blog/claude-implement-design-figma
 
 Contact: architjain808@gmail.com
 GitHub: https://github.com/architjain808
