@@ -1,0 +1,159 @@
+<!-- ── Three.js Hero ──────────────────────────────────── -->
+<section class="work-hero">
+  <canvas class="three-canvas" #threeCanvas></canvas>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      <span>Selected Work</span>
+    </div>
+
+    <div class="hero-title" #heroTitle>
+      <div class="overflow-hidden"><span class="reveal-line">CRAFTED</span></div>
+      <div class="overflow-hidden"><span class="reveal-line outline-text">WITH CODE.</span></div>
+    </div>
+
+    <p class="hero-sub" #heroSub>
+      End-to-end products — from government platforms to AI tools.
+    </p>
+
+    <div class="hero-counter" #heroCounter>
+      <span class="counter-num">04</span>
+      <span class="counter-label">Projects</span>
+      <span class="counter-divider"></span>
+      <span class="counter-num">5+</span>
+      <span class="counter-label">Years</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <i class="fa-solid fa-arrow-down"></i>
+  </div>
+</section>
+
+<!-- ── Project List ───────────────────────────────────── -->
+<section class="work-list" (mousemove)="onMouseMove($event)">
+  <div class="list-header">
+    <span class="list-col-label">Project</span>
+    <span class="list-col-label web-only">Role</span>
+    <span class="list-col-label">Year</span>
+  </div>
+  <div class="list-divider"></div>
+
+  <div
+    *ngFor="let project of projects"
+    class="list-item hoverable"
+    [class.list-item--hovered]="hoveredId === project.id"
+    #listItem
+    (mouseenter)="onListHover(project.id, $event)"
+    (mouseleave)="onListLeave()"
+    (click)="openModal(project)"
+    [attr.aria-label]="'View ' + project.title + ' project details'"
+    role="button"
+    tabindex="0"
+    (keydown.enter)="openModal(project)"
+  >
+    <span class="item-number">{{ project.id.toString().padStart(2, '0') }}</span>
+
+    <div class="item-main">
+      <h3 class="item-title">{{ project.title }}</h3>
+      <p class="item-subtitle">{{ project.subtitle }}</p>
+    </div>
+
+    <span class="item-role web-only">{{ project.role }}</span>
+    <span class="item-year">{{ project.year }}</span>
+
+    <div class="item-tags web-only">
+      <span class="item-tag" *ngFor="let tag of project.tags.slice(0, 2)">{{ tag }}</span>
+    </div>
+
+    <span class="item-arrow" aria-hidden="true">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </span>
+
+    <!-- Hover accent bar -->
+    <div class="item-accent-bar" aria-hidden="true"></div>
+  </div>
+
+  <!-- Floating SVG preview (follows mouse) -->
+  <div
+    class="floating-preview"
+    [class.floating-preview--visible]="hoveredId !== null"
+    [style.left.px]="previewPos.x + 24"
+    [style.top.px]="previewPos.y - 80"
+    aria-hidden="true"
+  >
+    <img
+      *ngIf="hoveredId !== null"
+      [src]="projects[hoveredId - 1]?.svgAsset"
+      [alt]="projects[hoveredId - 1]?.title"
+      class="preview-img"
+    />
+  </div>
+</section>
+
+<!-- ── Project Modal ─────────────────────────────────── -->
+<div
+  class="modal-overlay"
+  *ngIf="modalOpen"
+  (click)="closeModal()"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="activeProject?.title + ' project details'"
+>
+  <div class="modal-panel" (click)="$event.stopPropagation()">
+
+    <button class="modal-close hoverable" (click)="closeModal()" aria-label="Close modal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-visual">
+      <div class="modal-svg-wrap">
+        <img
+          [src]="activeProject?.svgAsset"
+          [alt]="activeProject?.title + ' illustration'"
+          class="modal-svg"
+        />
+      </div>
+      <div class="modal-impact-badge">
+        <span class="impact-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></span>
+        <span>{{ activeProject?.impact }}</span>
+      </div>
+    </div>
+
+    <div class="modal-info">
+      <div class="modal-meta">
+        <span class="modal-number">{{ activeProject?.id?.toString()?.padStart(2, '0') }} / 04</span>
+        <span class="modal-year">{{ activeProject?.year }}</span>
+      </div>
+
+      <div class="overflow-hidden">
+        <h2 class="modal-title">{{ activeProject?.title }}</h2>
+      </div>
+      <p class="modal-subtitle">{{ activeProject?.subtitle }}</p>
+
+      <p class="modal-desc">{{ activeProject?.desc }}</p>
+
+      <div class="modal-role-badge">
+        <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+        {{ activeProject?.role }}
+      </div>
+
+      <div class="modal-tags">
+        <span class="modal-tag" *ngFor="let tag of activeProject?.tags">{{ tag }}</span>
+      </div>
+
+      <a
+        [href]="activeProject?.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="modal-cta hoverable"
+        [attr.aria-label]="'View ' + activeProject?.title + ' live'"
+      >
+        <span>View Live Project</span>
+        <span class="cta-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+</div>

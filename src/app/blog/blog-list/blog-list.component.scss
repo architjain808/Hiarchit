@@ -2,6 +2,7 @@
   display: block;
   min-height: 100vh;
   background-color: var(--bg-primary);
+  padding-top: calc(var(--header-height) + 2.5rem);
 }
 
 .blog-wrapper {

@@ -12,19 +12,17 @@ import {
   NgZone
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
 import { HeroComponent } from '../hero/hero.component';
 import { AboutComponent } from '../about/about.component';
 import { ExperienceComponent } from '../experience/experience.component';
-import { ProjectsComponent } from '../projects/projects.component';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, AboutComponent, ExperienceComponent, ProjectsComponent, RouterLink],
+  imports: [HeroComponent, AboutComponent, ExperienceComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

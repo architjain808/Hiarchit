@@ -11,7 +11,30 @@
       "Bash(\"/c/Users/lenovo/AppData/Local/Python/bin/python3.exe\" \"D:/Side Project/Hiarchit/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio blog developer technical writing professional minimal\" --design-system -p \"Hiarchit Blog\" 2>&1)",
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_take_screenshot",
-      "mcp__playwright__browser_click"
+      "mcp__playwright__browser_click",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k:v for k,v in {**d.get\\(''''dependencies'''',{}\\), **d.get\\(''''devDependencies'''',{}\\)}.items\\(\\)}, indent=2\\)\\)\")",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"portfolio creative developer projects showcase editorial dark modern\" --design-system -p \"Hiarchit Projects\" -f markdown)",
+      "Bash(ls /c/Python*)",
+      "Read(//c/Users/lenovo/AppData/Local/Programs/**)",
+      "Bash(npm install:*)",
+      "Bash(python3 .agents/skills/svg-art/scripts/generate_particles.py --constellation -n 35 --connect-distance 22 --fill \"#9AD741\" --stroke \"#9AD741\" --seed 42 -o public/assets/images/proj-umang.svg)",
+      "Bash(python3 .agents/skills/svg-art/scripts/generate_radial.py --sunburst -n 28 --vary-length --fill \"#9AD741\" --seed 7 -o public/assets/images/proj-itpo.svg)",
+      "Bash(python3 .agents/skills/svg-art/scripts/generate_wave.py --layers 5 --fill \"#9AD741\" --seed 14 -o public/assets/images/proj-anuvachan.svg)",
+      "Bash(python3 .agents/skills/svg-art/scripts/generate_grid.py -c 8 -r 8 --shape circle --vary-size --vary-opacity --fill \"#9AD741\" --seed 21 -o public/assets/images/proj-talenttrace.svg)",
+      "Read(//c//**)",
+      "Bash(ls /c/Users/lenovo/AppData/Local/Programs/*)",
+      "Bash(\"/c/Users/lenovo/AppData/Local/Python/bin/python.exe\" --version)",
+      "Bash(PYEXE=\"/c/Users/lenovo/AppData/Local/Python/bin/python.exe\")",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_particles.py --constellation -n 35 --connect-distance 22 --fill \"#9AD741\" --stroke \"#9AD741\" --seed 42 -o public/assets/images/proj-umang.svg)",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_radial.py --sunburst -n 28 --vary-length --fill \"#9AD741\" --seed 7 -o public/assets/images/proj-itpo.svg)",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_wave.py --layers 5 --fill \"#9AD741\" --seed 14 -o public/assets/images/proj-anuvachan.svg)",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_grid.py -c 8 -r 8 --shape circle --vary-size --vary-opacity --fill \"#9AD741\" --seed 21 -o public/assets/images/proj-talenttrace.svg)",
+      "Bash(ls:*)",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_radial.py --sunburst -n 40 --vary-length --fill \"#9AD741\" --stroke \"#1a1a1a\" --stroke-width 0.8 --seed 11 -o public/assets/images/proj-umang.svg)",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_grid.py -c 7 -r 5 --shape rect --vary-size --vary-opacity --fill \"#9AD741\" --seed 8 -o public/assets/images/proj-itpo.svg)",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_fractal.py --tree --depth 8 --vary-angle --fill \"#9AD741\" --stroke \"#9AD741\" --stroke-width 1.2 --seed 77 -o public/assets/images/proj-anuvachan.svg)",
+      "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_particles.py --constellation -n 50 --connect-distance 20 --gradient --fill \"#9AD741\" --stroke \"#9AD741\" --seed 33 -o public/assets/images/proj-talenttrace.svg)",
+      "Bash(find '/d/Side Project/Hiarchit/public/assets/images' -type f -name *)"
     ]
   }
 }

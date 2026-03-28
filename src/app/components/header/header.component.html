@@ -1,0 +1,19 @@
+<header class="site-header" [class.header--scrolled]="isScrolled">
+  <div class="header-inner">
+    <a class="header-logo hoverable" routerLink="/">AJ<span class="logo-dot">.</span></a>
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a
+        class="nav-link hoverable"
+        routerLink="/work"
+        routerLinkActive="nav-link--active"
+        [ariaCurrentWhenActive]="'page'"
+      >Work</a>
+      <a
+        class="nav-link hoverable"
+        routerLink="/blog"
+        routerLinkActive="nav-link--active"
+        [ariaCurrentWhenActive]="'page'"
+      >Blog</a>
+    </nav>
+  </div>
+</header>

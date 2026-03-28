@@ -41,6 +41,22 @@ export class SeoService {
     this.setArticleSchema(title, excerpt, url);
   }
 
+  setWorkSEO(): void {
+    this.title.setTitle('Work | Archit Jain — Frontend Developer');
+    this.meta.updateTag({ name: 'description', content: 'Selected projects by Archit Jain — government platforms, AI tools, and full-stack SaaS products built with Angular, Next.js, and modern web technologies.' });
+    this.meta.updateTag({ name: 'author', content: AUTHOR });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ property: 'og:title', content: 'Work | Archit Jain' });
+    this.meta.updateTag({ property: 'og:description', content: 'Selected projects — government platforms, AI tools, and full-stack SaaS products.' });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:url', content: `${SITE_URL}/work` });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: 'Work | Archit Jain' });
+    this.meta.updateTag({ name: 'twitter:description', content: 'Selected projects — government platforms, AI tools, and full-stack SaaS products.' });
+    this.meta.updateTag({ name: 'twitter:creator', content: '@ArchitJ808' });
+    this.setCanonical(`${SITE_URL}/work`);
+  }
+
   setDefaultSEO(): void {
     this.title.setTitle('Archit Jain | Frontend Developer - Angular & React Expert');
     this.meta.updateTag({

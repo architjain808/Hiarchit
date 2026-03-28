@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "svg-art": {
+      "source": "kv0906/cc-skills",
+      "sourceType": "github",
+      "computedHash": "f31936cd57d302f4ce2f9bffada3707d232d0445ec0234d08df822065f361f26"
+    }
+  }
+}

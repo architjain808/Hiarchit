@@ -7,6 +7,10 @@ export const APP_ROUTES: Routes = [
     component: HomeComponent
   },
   {
+    path: 'work',
+    loadComponent: () => import('./components/projects-page/projects-page.component').then(m => m.ProjectsPageComponent)
+  },
+  {
     path: 'blog',
     loadChildren: () => import('./blog/blog.routes').then(m => m.BLOG_ROUTES)
   },
