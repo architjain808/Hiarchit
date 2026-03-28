@@ -17,6 +17,7 @@ import { CLAUDE_CODE_LATEST_UPDATE } from './posts/claude-code-latest-update';
 import { PROFESSIONAL_UI_UX_FOR_DEVELOPERS } from './posts/professional-ui-ux-for-developers';
 import { CLAUDE_MEMORY_FEATURE } from './posts/claude-memory-feature';
 import { CLAUDE_IMPLEMENT_DESIGN_FIGMA } from './posts/claude-implement-design-figma';
+import { AI_TESTING_TOOLS_FUTURE_2026 } from './posts/ai-testing-tools-future-2026';
 
 export const POST_REGISTRY: BlogPost[] = [
   BUILDING_MODERN_ANGULAR_APPS,
@@ -24,6 +25,7 @@ export const POST_REGISTRY: BlogPost[] = [
   PROFESSIONAL_UI_UX_FOR_DEVELOPERS,
   CLAUDE_MEMORY_FEATURE,
   CLAUDE_IMPLEMENT_DESIGN_FIGMA,
+  AI_TESTING_TOOLS_FUTURE_2026,
 ];
 
 // Convenience helpers
