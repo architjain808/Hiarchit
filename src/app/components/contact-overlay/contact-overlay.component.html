@@ -1,0 +1,88 @@
+<div class="overlay-backdrop" #overlayBackdrop (click)="close()" aria-hidden="true"></div>
+
+<div class="overlay-panel" #overlayPanel role="dialog" aria-modal="true" aria-label="Contact Archit Jain">
+  <!-- Close -->
+  <button class="panel-close hoverable" (click)="close()" aria-label="Close contact panel">
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+
+  <!-- Heading -->
+  <div class="panel-heading">
+    <div class="overflow-hidden">
+      <span class="panel-title" #panelTitle>LET'S</span>
+    </div>
+    <div class="overflow-hidden">
+      <span class="panel-title panel-title--outline" #panelTitle>
+        CONNECT<span class="title-dot">.</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Divider strip -->
+  <div class="panel-strip" #panelStrip>
+    <div class="strip-bar"></div>
+    <span class="strip-text">REACH OUT</span>
+    <div class="strip-bar"></div>
+  </div>
+
+  <!-- Social links -->
+  <div class="social-list" role="list">
+    <a class="social-item hoverable" href="https://x.com/ArchitJ808" target="_blank" rel="noopener noreferrer"
+      role="listitem" #socialItem>
+      <span class="social-num" aria-hidden="true">01</span>
+      <div class="social-icon-wrap">
+        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+      </div>
+      <div class="social-content">
+        <span class="social-platform">X &nbsp;/&nbsp; Twitter</span>
+        <span class="social-handle">&#64;ArchitJ808</span>
+      </div>
+      <i class="fa-solid fa-arrow-up-right social-arrow" aria-hidden="true"></i>
+    </a>
+
+    <a class="social-item hoverable" href="https://www.linkedin.com/in/archit-jain-337a66195/" target="_blank"
+      rel="noopener noreferrer" role="listitem" #socialItem>
+      <span class="social-num" aria-hidden="true">02</span>
+      <div class="social-icon-wrap">
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      </div>
+      <div class="social-content">
+        <span class="social-platform">LinkedIn</span>
+        <span class="social-handle">Archit Jain</span>
+      </div>
+      <i class="fa-solid fa-arrow-up-right social-arrow" aria-hidden="true"></i>
+    </a>
+
+    <a class="social-item hoverable" href="https://www.instagram.com/_archit.jain_" target="_blank"
+      rel="noopener noreferrer" role="listitem" #socialItem>
+      <span class="social-num" aria-hidden="true">03</span>
+      <div class="social-icon-wrap">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </div>
+      <div class="social-content">
+        <span class="social-platform">Instagram</span>
+        <span class="social-handle">&#64;_archit.jain_</span>
+      </div>
+      <i class="fa-solid fa-arrow-up-right social-arrow" aria-hidden="true"></i>
+    </a>
+
+    <a class="social-item hoverable"
+      href="mailto:architjain808@gmail.com?subject=Hi%20Archit%20%E2%80%94%20Let%27s%20Connect" role="listitem"
+      #socialItem>
+      <span class="social-num" aria-hidden="true">04</span>
+      <div class="social-icon-wrap">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </div>
+      <div class="social-content">
+        <span class="social-platform">Email</span>
+        <span class="social-handle">architjain808&#64;gmail.com</span>
+      </div>
+      <i class="fa-solid fa-arrow-up-right social-arrow" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!-- Footer note -->
+  <!-- <p class="panel-footer" #panelFooter>
+    Open to freelance &amp; full-time opportunities
+  </p> -->
+</div>

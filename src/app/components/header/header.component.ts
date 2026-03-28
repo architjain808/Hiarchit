@@ -1,6 +1,7 @@
 import { Component, HostListener, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   isScrolled = false;
-  private platformId = inject(PLATFORM_ID);
+  private platformId   = inject(PLATFORM_ID);
+  private contactService = inject(ContactService);
 
   @HostListener('window:scroll')
   onScroll() {
@@ -19,4 +21,6 @@ export class HeaderComponent {
       this.isScrolled = window.scrollY > 40;
     }
   }
+
+  openContact() { this.contactService.open(); }
 }

@@ -14,6 +14,15 @@
         routerLinkActive="nav-link--active"
         [ariaCurrentWhenActive]="'page'"
       >Blog</a>
+      <button
+        class="nav-contact hoverable"
+        (click)="openContact()"
+        aria-label="Open contact panel"
+        type="button"
+      >
+        Contact
+        <span class="contact-dot" aria-hidden="true"></span>
+      </button>
     </nav>
   </div>
 </header>

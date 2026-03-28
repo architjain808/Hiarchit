@@ -34,7 +34,8 @@
       "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_grid.py -c 7 -r 5 --shape rect --vary-size --vary-opacity --fill \"#9AD741\" --seed 8 -o public/assets/images/proj-itpo.svg)",
       "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_fractal.py --tree --depth 8 --vary-angle --fill \"#9AD741\" --stroke \"#9AD741\" --stroke-width 1.2 --seed 77 -o public/assets/images/proj-anuvachan.svg)",
       "Bash(\"$PYEXE\" .agents/skills/svg-art/scripts/generate_particles.py --constellation -n 50 --connect-distance 20 --gradient --fill \"#9AD741\" --stroke \"#9AD741\" --seed 33 -o public/assets/images/proj-talenttrace.svg)",
-      "Bash(find '/d/Side Project/Hiarchit/public/assets/images' -type f -name *)"
+      "Bash(find '/d/Side Project/Hiarchit/public/assets/images' -type f -name *)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"portfolio contact overlay modal animation glassmorphism dark\" --design-system -p \"Hiarchit Portfolio\")"
     ]
   }
 }
